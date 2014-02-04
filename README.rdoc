@@ -19,7 +19,7 @@ Design based on {smartbiz theme}[https://wrapbootstrap.com/theme/smartbiz-respon
 
 ---
 
-Source is open and free, uou may reuse it easily for other projects.
+Source is open and free, you may reuse it easily for other projects.
 
 ---
 
