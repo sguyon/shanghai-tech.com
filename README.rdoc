@@ -1,5 +1,7 @@
 == 上海-TECH source code
 
+www.shanghai-tech.com
+
 http://sguyon.com/images/shtech.jpg
 
 --- 
@@ -32,6 +34,6 @@ If you feel like trying to hack around the source, feel free to fix the current 
 
 === 
 
-www.shanghai-tech.com
+
 
 http://960dots.com/folio/wp-content/uploads/2014/01/homemockup.png
