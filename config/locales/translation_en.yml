@@ -1,0 +1,90 @@
+en:
+  activerecord:
+    models:
+      company: Company  #g
+      company_type: Company Type  #g
+      event: Event  #g
+      event_type: Event Type  #g
+      job: Job  #g
+      person: Person  #g
+      skill: Skill  #g
+      user: User  #g
+
+    attributes:
+      company:
+        adress: Adress  #g
+        blog_feed: Blog feed  #g
+        company_type: Company Type  #g
+        company_types: Company Types  #g
+        description: Description  #g
+        email: Email  #g
+        gmaps: Gmaps  #g
+        image: Image  #g
+        latitude: latitude  #g
+        linkedin: linkedin  #g
+        longitude: longitude  #g
+        name: name  #g
+        people: people  #g
+        title: title  #g
+        twitter: twitter  #g
+        user: :activerecord.models.user  #g
+        website: website  #g
+        weibo: weibo  #g
+
+      company_type:
+        name: name  #g
+
+      event:
+        blog_feed: blog_feed  #g
+        description: description  #g
+        email: email  #g
+        event_type1: event_type1  #g
+        event_type2: event_type2  #g
+        event_type3: event_type3  #g
+        event_types: event_types  #g
+        image: image  #g
+        name: name  #g
+        people: people  #g
+        twitter: twitter  #g
+        user: :activerecord.models.user  #g
+        website: website  #g
+        weibo: weibo  #g
+
+      event_type:
+        name: name  #g
+
+      person:
+        blog: blog  #g
+        companies: companies  #g
+        description: description  #g
+        events: events  #g
+        image: image  #g
+        name: name  #g
+        photo_url: photo_url  #g
+        position: position  #g
+        question1: question1  #g
+        question2: question2  #g
+        question3: question3  #g
+        question4: question4  #g
+        skill1: skill1  #g
+        skill2: skill2  #g
+        skill3: skill3  #g
+        skills: skills  #g
+        twitter: twitter  #g
+        user: :activerecord.models.user  #g
+        website: website  #g
+        weibo: weibo  #g
+
+      skill:
+        name: name  #g
+
+      user:
+        admin: admin  #g
+        companies: companies  #g
+        crypted_password: crypted_password  #g
+        email: email  #g
+        events: events  #g
+        password_salt: password_salt  #g
+        perishable_token: perishable_token  #g
+        persistence_token: persistence_token  #g
+        person: :activerecord.models.person  #g

@@ -1,0 +1,63 @@
+// Place all the styles related to the People controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.people.show {
+
+  p.name{
+      display: inline-block;
+      background: white;
+      background: rgba(255, 255, 255, 0.8);
+      color: black;
+      padding: 5px 10px;
+      text-shadow: 1px 1px 1px white;
+      margin-top: 1px;
+  }
+
+  p.bioq
+  {
+    margin-right:30px;
+    margin-top:20px;
+    margin-bottom:-8px;
+    font-weight:normal;
+    font-size:0.9em;
+    font-color:#262626;
+  }
+  p.bio
+  {
+    margin-right:30px;
+    font-size:0.8em;
+    font-weight:lighter;
+    line-height:1.4em;
+  }  
+
+  .name {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+
+    .span {
+      background: white;
+      background: rgba(255, 255, 255, 0.8);
+      color: black;
+      padding: 5px 10px;
+      text-shadow: 1px 1px 1px white;
+      margin-top: 1px;
+    }
+    .add {
+      margin-top: 15px;
+      margin-left: 20px;
+    }
+  }
+  .description{
+    margin-left:20px;
+  }
+
+  .sidebar{
+    ul{
+      margin-left:0px;
+    }
+  }
+}

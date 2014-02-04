@@ -1,0 +1,87 @@
+= render "layouts/intro"
+
+%section.section#main
+  .container
+    .page-header
+      %h2= link_to t('shared.back_list_html'), companies_path
+    .row
+      .span3
+        = image_tag @company.image
+      .span6.description
+        %h1.name
+          =@company.name
+          %small
+            (
+            =@company.name_alt.presence ? @company.name_alt : ''
+            )
+        - if @company.title.presence
+          %h3.title=@company.title
+        .thumbnail-filters
+          - if @company.company_types.count>0
+            %ul#filters
+              %strong
+              =t('.types')
+              - @company.company_types.each_with_index do |type,index| 
+                %li{:class => "#{(index == (@company.company_types.all.count-1)? 'last' : '')}"}
+                  = type.name  
+        - if @company.description.presence
+          %p.bio=@company.description
+
+        %ul.icons
+          - if @company.twitter.presence
+            %li.twitter
+              %i
+              %a{:href => "http://www.twitter.com/#{@company.twitter}", :target => "_blank"}
+                = "@" + @company.twitter
+          - if @company.weibo.presence    
+            %li.weibo
+              %i
+              %a{:href => "http://www.weibo.com/#{@company.weibo}", :target => "_blank"}
+                = "@" + @company.weibo
+          - if @company.website.presence    
+            %li.website
+              %i
+              %a{:href => "http://#{@company.website}", :target => "_blank"} #{@company.website}
+
+      .span3.sidebar
+        - ppl = Person.all(:include => :companies, :conditions => ["companies.id = ?", @company.id])
+        - if ppl.count>0      
+          %h2=t('.work_there')
+          %ul.people
+            - ppl.each do |person|
+              %li
+                = link_to image_tag(person.image.small), person_path(person.id)
+          %br{:clear => "all"}
+          %br
+        - if can? :update, @company
+          %br
+          = button_icon "Edit company", edit_company_path(@company), "edit"
+    - if @company.adress.presence     
+      .row
+        .span12
+          %h2
+            = t '.location'
+            %small= @company.adress
+          %br
+          = companymap
+          %br
+
+%section.section#main.hidden-800
+  .container
+    .page-header
+      %h2=t '.other'
+    .row
+      .span12
+        %ul.thumbnails.bordered.thumbnail-list
+          - Company.all.sample(6).each do |company|
+            - if (company.id != @company.id)
+              %li.span2.filter-designer
+                %a{:href => company_path(:id => company.id)}
+                  %figure.thumbnail-figure
+                    = image_tag("#{company.image}")
+= content_for :scripts do
+  <script type="text/javascript" charset="utf-8">
+  Gmaps.map.callback = function() {
+  mapInit();
+  }
+  </script>

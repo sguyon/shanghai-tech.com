@@ -1,0 +1,37 @@
+== 上海-TECH source code
+
+http://sguyon.com/images/shtech.jpg
+
+--- 
+
+
+Tech based on:
+  - ruby-1.9.3-p194
+  - rails 3.2.6
+  - bootstrap some old version
+  - rails_admin
+
+---
+
+Design based on {smartbiz theme}[https://wrapbootstrap.com/theme/smartbiz-responsive-theme-WB006P073] + 960dots[http://960dots.com/] customization
+
+---
+
+Source is open and free, uou may reuse it easily for other projects.
+
+---
+
+=== How to install and configure
+
+(TO DO, but it's the usual rails process)
+
+=== How to contribute
+
+There is a TODO file with a lot of stuff to do.
+If you feel like trying to hack around the source, feel free to fix the current bugs
+
+=== 
+
+www.shanghai-tech.com
+
+http://960dots.com/folio/wp-content/uploads/2014/01/homemockup.png

@@ -1,0 +1,23 @@
+%section.section#main
+  .container
+    .page-header
+      %h2= link_to '<i class="icon-arrow-left"></i> Back to my account'.html_safe, account_path
+      .thumbnail-filters
+        %h1
+          %i.icon-user
+          Edit user
+          %small
+
+  = simple_form_for(@user, {:url => {:method => :put, :action => "update"} , :html => {:class => 'form-horizontal' } }) do |f2|
+
+    - if @user.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
+
+    = f2.input :email, :placeholder => 'user@domain.com'
+    = f2.input :password, { :placeholder => "&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;".html_safe }
+    = f2.input :password_confirmation, { :placeholder => "&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;".html_safe }
+    = f2.button :wrapped, :submit, :value => "Submit"

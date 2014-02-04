@@ -1,0 +1,44 @@
+= render "layouts/intro"
+
+%section.section#main
+  .container
+    .page-header.thumbnail-filters
+      %h1
+        %i.icon-file
+        =t '.title' , :count => @jobs.count
+        %br
+      %h1
+        %small
+          %strong=t '.subtitle'
+      %div#clear
+        &nbsp;
+      %div
+        =link_to t('.hire'), new_job_path
+    - @jobs.each do |j|
+      .row.jobline
+        .span1.image
+          = image_tag j.company.image
+        .span3.offset1.title
+          %a{:href=>job_path(j)}
+            %h3= j.title
+            %h3
+              %small
+                =j.company.name
+            - j.job_types.each do |t|
+              %span.label{:class => t.label}=t.name
+
+        .span6.description
+          
+          %p.desc
+            %em=j.created_at.strftime("%d %b %y")
+            %br
+            = j.short_description
+          %p{:style=>"vertical-align: bottom;"}
+            %a.btn{:href=>job_path(j)}
+              %i.icon-file
+              =t '.view'
+
+    %br
+    %h3.post
+      = link_to t('.add'), new_job_path, {:class =>"add btn btn-primary btn-large"}
+    %br

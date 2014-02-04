@@ -1,0 +1,170 @@
+
+IN PROGRESS
+============
+
+
+FEATURE : JOB
+  - Chinese translation
+  - create better job offer creation funnel
+    - add moderation step (send mail when it's entered)
+
+
+COMPANY -> move to ORGANISATIONS
+  - company types
+      - agency/consultancy --> agency
+        - chinese translation ?
+
+MAKE THE HOME MAP BIGGER
+
+
+TO FIX
+=======
+
+- automatize the db passwd process
+  http://stackoverflow.com/questions/1449836/how-to-manage-rails-database-yml
+
+- Make the people and companies lists random 
+
+- on Windows, chinese font not displayed
+            cf /Users/sacha/Documents/_Side_Projects/shanghaitech/shtech_windows_bug_1.png
+
+- When admin delete a user photo (from rails admin), default image (grey head) is not shown anymore
+
+- find why companies image thumbnails are not always generated
+
+- fix image size problems
+
+- find why livereload is not working anymore
+
+
+TODO
+=====
+
+
+- DESIGN : filters : make dropdown/select menu on mobile (selectnav.js with data-filters)
+
+- add buttons "I work there !" (companies) and "I go there also !" (events)
+
+
+- LIST : add infinite scroll
+  some examples:
+    http://railscasts.com/episodes/114-endless-page-revised?view=comments
+    http://pedromtavares.wordpress.com/2011/05/08/endless-page-scrolling-with-rails-3-and-jquery/
+    http://endless-scroll-example.heroku.com/
+    http://stackoverflow.com/questions/8328622/implementing-a-endless-scroll-with-rails-3-and-jquery
+    https://github.com/francepronet/jquery-infinite-scrolling/blob/master/jquery.infinitescrolling.js
+
+- create 404 page
+
+- MAP : add realtime filters http://andyglassblog.wordpress.com/2012/07/06/google-maps-for-rails-with-gmaps4-rails-tutorial-on-how-to-post-and-filter-locations/
+
+- jquery ajax filter list like http://razorjack.net/quicksand/docs-and-demos.html - http://www.weareaustintech.com/
+
+- add urlrewriting
+
+- EVENTS :
+  - add venue (name + map)
+  - add calendar (date(s) + name + venue)
+
+
+- MAP
+  - add company types filter
+  - add events
+  - next week events filter
+
+
+- f.association :skills in _form's: add max number of skills http://stackoverflow.com/questions/9273621/jquery-chosen-how-to-limit-the-number-of-selected-values-and-provide-an-error-m
+
+- when adding a company/event/job, user.person's profile is automatically associated to the item created (on view side)
+
+
+- fix margin on .icons list items in #show's
+
+
+
+
+DONE
+=====
+- Add skill enum to people/companies (find out how to do enum/array in RoR)
+- EVENT Scaffold
+- EVENT index/show pages
+- guard + livereload + rack-livereload
+- JOB temp page
+- google fonts in local
+- new user registration
+- after registration, redirect to user/index
+- authlogic authentification
+- learn cancan access restriction
+- new person profile form (create/edit)
+- carrierwave + gravatar image management
+- register shanghai-tech.com on godaddy
+- People --> Company link
+- companies has many people through user
+- people has many companies through user
+- event add form with carrierwave
+- event edit form
+- People --> Event link
+- People form : skills + company collections
+- Company form : add people collections (chosen)
+- PEOPLE public new form
+- COMPANY public form
+- EVENT public form
+- forgot password page (not index,show)
+- MAP add long/lat to companies
+- add map to company show
+- HOME MAP add a big map on homepage with all companies
+- MAP company.adress : seeds.rb
+- MAP add map on company form (drop marker : https://github.com/apneadiving/Google-Maps-for-Rails/wiki/Javascript-goodies)
+- FILTERS optimize people-skills, company-type, event-type by making their own model
+- FILTERS create tables / new migrations
+- FILTERS create HABTM Relationship
+- FILTERS create seeds
+- FILTERS update index views
+- FILTERS update show views
+- FILTERS f.association :skills in _form's
+- MINI-INTERVIEW better inputs in people profile (with mini-interview, check NOTES + wernytech)
+- ABOUT page template
+- fix rails_admin
+- CHINESE implemented i18n + language selection
+- CHINESE  : person/company/event : add full name in english + chinese
+- HOMEPAGE + CHINESE make introduction line
+- HOMEPAGE make better item wall
+- iPad responsive design
+- similar people/comp/event's images are too big, make smaller and more on one line
+- HOMEPAGE better item wall
+- HOMEPAGE add featured items in item wall
+- MODERATION log create/update/delete in info.log
+- MODERATION send mail when new log
+- HOST buy linode JP VPS
+- HOST setup git server
+- HOST setup apache2 + passenger
+- HOST setup ruby/rails/rvm environment
+- HOST setup capistrano deployment
+- HOST register to google analytics and change code in production.rb
+- HOST back --> linode backup
+- HOST migrate from sqlite to mysql
+- HOST capistrano deploy with conditions (migrate & assets compile only if needed )
+- DESIGN responsive thumbnails should be text lists on small devices
+- DESIGN responsive h1/2/3 should resize
+- DESIGN fix {people/comp/evt}#show pages design
+- DESIGN responsive filters
+- DESIGN responsive skills/type 
+- SSL - shanghaitech@shtech:~$ openssl rand -base64 12 : gIQSeL1jMNf5RGPO
+- HOST setup auto mysql backup : http://petermolnar.eu/linux-tech-coding/database-backups-to-google-drive/
+- FIX Mysql is now truly utf8
+- #show : only show content if not nil (sidebar associations, table fields...)
+- company new form : line validation error messages are not shown inline
+- event new form : no validation tests
+- hide EVENT/JOB (header, event#index, footer, home, acount, people#show)
+- edit form : weibo/twitter website with input prepend (@/http:///)
+- don't show user/company in similar users/company
+- upper zoom level on company#show page
+- move all text to i18n YML files
+- HTML appearing after create/update
+- CN Ask Jane to translate everything
+- CN test all pages
+- DESIGN : fix login/register screens on mobile
+- FIX bug attribution entreprises quand j'edite
+- add twitter and weibo in footer
+- JOB create JobType model (freelance/fulltime/internship) + simple job form + link to person to contact & company
+- JOB index beautified

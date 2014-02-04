@@ -1,0 +1,53 @@
+= simple_form_for(@event, { :html => {:class => 'form-horizontal', :multipart => true } }) do |f|
+
+  =  f.error_notification
+
+  .row.box
+    .span4
+
+      - if @event.image?
+        = image_tag @event.image
+      - else  
+        - img = image_path ('company_default.png')
+        - imgfull = URI.join(root_url, img)
+        = image_tag img
+        / = f.hidden_field :remote_image_url, :value => imgfull
+      %br
+      %br      
+      %i= t('shared.choose_picture')
+      = f.file_field :image
+      %br
+      %br
+      %blockquote
+        =t('.image_instruction_html')
+        %br
+        = link_icon t('.get_template'), "/images/event_template.psd", "download"
+    .span8
+    
+      = f.input :name_en, :placeholder => t('.name_en_placeholder') , :label => t('.name_en')
+      = f.input :name_cn, :placeholder => t('.name_en_placeholder') , :label => t('.name_en')
+    
+      = f.input :description, :label => t('.description'), :placeholder => t('.description_placeholder'), :as => "text"
+    
+      = f.association :event_types, :label => t('.types'), :hint => t('.types_hint'),:input_html => {:class => "chzn-select" ,:"data-placeholder" => t('.types_placeholder') }            
+
+      = f.input :website, :label => t('.website'), :wrapper => :prepend do
+        = precede "<span class='add-on'>http://</span>".html_safe do
+          = f.input_field :website, :placeholder => "www.yourwebsite.com"
+
+      = f.input :twitter, :label => t('.twitter'), :wrapper => :prepend do
+        = precede "<span class='add-on'>@</span>".html_safe do
+          = f.input_field :twitter, :placeholder => "username"
+      
+      = f.input :weibo, :label => t('.weibo'), :wrapper => :prepend do
+        = precede "<span class='add-on'>@</span>".html_safe do
+          = f.input_field :weibo, :placeholder => "username"
+
+      = f.association :people, :label => t('.people'), :input_html => {:class => "chzn-select",:"data-placeholder" => t('.people_placeholder') }
+
+      - if @event.user.presence
+        = f.hidden_field :user_id, :value => @event.user_id
+      - else
+        = f.hidden_field :user_id, :value => current_user.id
+
+      = f.button :wrapped, :submit, :value => t('shared.submit')

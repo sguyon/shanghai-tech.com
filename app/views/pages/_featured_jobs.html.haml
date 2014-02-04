@@ -1,0 +1,19 @@
+- @jobs = Job.all(:order => 'created_at DESC', :limit => 4)
+%h3
+  =t('.title')
+  %small
+    %a{:href=> jobs_path}= t 'shared.view_all', :count => Job.all.count
+.row.jobs
+  - @jobs.each do |j|
+    .span3.job
+      .span1.image.hidden-800
+        %a{:href => job_path(j)}
+          = image_tag(j.company.image)
+      .span2.title
+        %a{:href => job_path(j)}
+          = j.title
+          %br
+          .comp= j.company.name
+          //%p{:style=>"vertical-align: bottom;"}
+          - j.job_types.each do |t|
+            %span.label{:class => t.label}=t.name

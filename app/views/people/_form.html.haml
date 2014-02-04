@@ -1,0 +1,59 @@
+= simple_form_for(@person, { :validate => true, :html => {:class => 'form-horizontal', :multipart => true } }) do |f|
+
+  =  f.error_notification
+
+  .row.box
+    .span4
+
+      - if @person.image?
+        = image_tag @person.image
+      - else  
+        = image_tag avatar_url(current_user)
+        = f.hidden_field :remote_image_url, :value => avatar_url(current_user)   
+      %br
+      %br      
+      %i= t('shared.choose_picture')
+      = f.file_field :image
+      %br
+      %br
+      %blockquote
+        =t '.image_instruction_html'
+    .span8
+
+      %p.desc= t '.name_description'
+      = f.input :name_en,  :placeholder => t('.name_en_placeholder'), :label => t('.name_en')
+      = f.input :name_cn,  :placeholder => t('.name_cn_placeholder'), :label => t('.name_cn')
+      = f.input :position, :placeholder => t('.position_placeholder'), :label => t('.position')
+      
+      = f.association :skills, :label => t('.skills'), :hint => t('.skills_hint'),:input_html => {:class => "chzn-select" ,:"data-placeholder" => t('.skills_placeholder')}     
+
+      = f.input :website, :label => t('.website'), :wrapper => :prepend do
+        = precede "<span class='add-on'>http://</span>".html_safe do
+          = f.input_field :website, :placeholder => "www.yourwebsite.com"
+
+      = f.input :twitter, :label => t('.twitter'), :wrapper => :prepend do
+        = precede "<span class='add-on'>@</span>".html_safe do
+          = f.input_field :twitter, :placeholder => "username"
+      
+      = f.input :weibo, :label => t('.weibo'), :wrapper => :prepend do
+        = precede "<span class='add-on'>@</span>".html_safe do
+          = f.input_field :weibo, :placeholder => "username"
+
+
+      = f.input :description , :label => t('.description'), :placeholder => t('.description_placeholder'), :as => "text"
+      %p.desc= t '.questions_description'
+      = f.input :question1, :label => t('.question1'), :class => "question", :as => "text"
+      = f.input :question2, :label => t('.question2'), :class => "question", :as => "text"     
+      = f.input :question3, :label => t('.question3'), :class => "question", :as => "text"
+      = f.input :question4, :label => t('.question4'), :class => "question", :as => "text"                  
+      
+      = f.association :companies, :label => t('.companies'), :hint => t('.companies_hint'), :input_html => {:class => "chzn-select",:"data-placeholder" => t('.companies_placeholder') }
+      
+      = #f.association :events, :label => t('.events'), :hint => t('.events_hint'),:input_html => {:class => "chzn-select" ,:"data-placeholder" => t('.events_placeholder') }
+
+      - if @person.user.presence
+        = f.hidden_field :user_id, :value => @person.user_id
+      - else
+        = f.hidden_field :user_id, :value => current_user.id
+
+      = f.button :wrapped, :submit, :value => t('shared.submit')

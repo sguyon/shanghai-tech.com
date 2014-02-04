@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), font-url('OpenSans-Extrabold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), font-url('OpenSans-Italic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), font-url('OpenSans.woff') format('woff');
+}
+
+body{
+  font-family:'Open Sans', Helvetica, Arial, serif
+}
+h1,h2,h3,h4,h5,h6{
+  font-family:'Open Sans', Helvetica, Arial, serif;
+  letter-spacing: -1px;
+  //font-weight:800
+}

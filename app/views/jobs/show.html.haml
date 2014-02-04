@@ -1,0 +1,82 @@
+= render "layouts/intro"
+%section.section#main
+  .container
+    .page-header
+      %h2= link_to t('shared.back_list_html'), jobs_path
+    .row
+      .span3
+        %a{:href=> company_path(@job.company)}= image_tag(@job.company.image)
+      .span6.description
+        %h1.name
+          =@job.title
+          %small
+            - if (@job.title_alt.presence && (@job.title_alt != @job.title))
+              (
+              = @job.title_alt
+              )
+        .thumbnail-filters
+          - if @job.job_types.count>0
+            %ul#filters
+              %strong
+              - @job.job_types.each_with_index do |t,index| 
+                %span.label{:class => t.label}=t.name
+
+        .descq
+          = t '.posted'
+          = @job.created_at.strftime("%d %b %y")
+        .descq
+          = t '.summary'
+        .desc
+          = @job.short_description.html_safe
+
+        .descq
+          = t '.description'
+        .desc
+          = @job.long_description.html_safe
+        
+        %br
+
+        - if @job.email.presence
+          %i.icon-envelope
+          &nbsp;
+          %a{:href => "http://#{@job.email}", :target => "_blank"} #{@job.email}  
+
+        %br
+      
+        - if @job.website.presence
+          %i.icon-link
+          &nbsp;
+          %a{:href => "http://#{@job.website}", :target => "_blank"} #{@job.website}
+
+        %br
+        %br
+
+      .span3.sidebar
+        - ppl = Person.all(:include => :companies, :conditions => ["companies.id = ?", @job.company_id])
+        - if ppl.count>0      
+          %h2=t('.work_there')
+          %ul.people
+            - ppl.each do |person|
+              %li
+                = link_to image_tag(person.image.small), person_path(person.id)
+          %br{:clear => "all"}
+          %br
+        - if can? :update, @job
+          %br        
+          = button_icon "Edit job offer", edit_job_path(@job), "edit"
+
+
+/ %section.section#main.hidden-800
+/   .container
+/     .page-header
+/       %h2= t '.other'
+/     .row
+/       .span12
+/         %ul.thumbnails.bordered.thumbnail-list
+/           - Job.all.sample(6).each do |job|    
+/             - if (job.id != @job.id)
+/               %li.span2.filter-designer
+/                 %a{:href => job_path(:id => job.id)}
+/                   %figure.thumbnail-figure
+/                     = image_tag("#{job.company.image}")
+/                     = job.title

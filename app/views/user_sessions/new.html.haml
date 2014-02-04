@@ -1,0 +1,32 @@
+%section.section#main
+  .container
+    .row
+      .span7.offset1 
+        %h1
+          %i.icon-signin
+          =t('nav.login')
+        .loginbox
+          = simple_form_for(@user_session, {:url => {:action => "create"} , :html => {:class => 'form-horizontal' } }) do |f|
+            = f.input :email, :placeholder => 'user@domain.com', :label => t('shared.email')
+            = f.input :password, {:label => t('shared.password'), :placeholder => "&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;".html_safe }
+            = f.button :wrapped, :submit, :value => t('nav.login')
+            .forgot
+              = link_to t('.forgot_password'), new_password_reset_path
+              %br
+              %br
+      .span3.offset1.off
+        %em=t('.no_account')
+        %br
+        =t('.create_account')
+        %br
+        %br
+        %a{:href => register_path, :class=>"register btn btn-inverse btn-large"}
+          %i.icon-plus-sign
+          =t('nav.register')
+
+        / = simple_form_for(@user, {:url => {:action => "create"} , :html => {:class => 'form-horizontal' } }) do |f2|
+
+        /   = f2.input :email, :placeholder => 'user@domain.com'
+        /   = f2.input :password, { :placeholder => "&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;".html_safe }
+        /   = f2.input :password_confirmation, { :placeholder => "&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;".html_safe }
+        /   = f2.button :wrapped, :submit, :value => "Register"

@@ -1,0 +1,45 @@
+= render "layouts/intro"
+
+%section.section#main
+  .container
+    .page-header.thumbnail-filters
+      %h1
+        %i.icon-user
+        =t '.title' , :count => @people.count
+        %br
+      %h1
+        %small
+      %ul#filters
+        %strong
+          =t('shared.filter')
+          %li
+            %a.active{"data-filter" => "all", :href  => "#"}=t 'shared.all'
+        - Skill.all.each_with_index do |skill,index| 
+          %li{:class => "#{(index == (Skill.all.count-1)? 'last' : '')}"}
+            %a{"data-filter" => "#{skill.id}", :href => "#"} #{skill.name}
+    %ul.thumbnails.bordered.thumbnail-list
+      - @people.each do |person|    
+        - classes = "span3"
+        - person.skills.each do |skill| 
+          - classes = classes + " filter-#{skill.id}"
+        %li{ :class => "#{classes}"}
+          %a{:href => person_path(:id => person.id)}
+            %figure.thumbnail-figure
+              - style = person.get_style.to_s
+              %style{:type => "text/css"}
+                = person.get_style
+              = image_tag "#{person.image}", :id => "person" + person.id.to_s
+              %figcaption.thumbnail-title
+                %h3.people
+                  %span= person.name
+                  - if person.position.presence
+                    %small.hidden-480=person.position
+
+      %li.span3.hidden-800
+        %a{:href => "people/new"}
+          %figure.thumbnail-figure
+            %div#new
+              %figcaption.thumbnail-title
+                %h3
+                  %span= t('.not_listed')
+                  = link_to t('.add'), new_person_path, {:class =>"add btn btn-primary btn-large"}

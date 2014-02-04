@@ -1,0 +1,208 @@
+zh:
+  nav:
+    home: 主页
+    people: 人才
+    companies: 公司
+    events: 活动
+    jobs: 招聘
+    account: 帐户
+    use_chinese: 用中文 
+    use_english: Use English
+    my_account: 我的帐户
+    logout: 注销
+    login: 登录
+    register: 注册
+  shared:
+    back_account_html: '<i class="icon-arrow-left"></i> 上一页'
+    back_list_html: '<i class="icon-arrow-left"></i> 上一页'
+    filter: "分类:"    
+    all: 全部
+    view_all: 全部展开 (%{count})
+    email: 电邮
+    password: 密码
+    password_confirmation: 密码确认
+    submit: 创建
+    choose_picture: "选择新的图片"
+  flash:
+    close: close   
+  layouts:
+    intro:
+      welcome_html: |
+        欢迎来到<strong>上海TECH</strong> !
+        快来见见让我们社区多元化的<a href="%{companies_link}">公司</a>和<a href="%{people_link}">人才</a>, 参加各种<a href="%{events_link}">活动</a>吧！
+      
+      new: 还没注册？
+      introduce: 立即加入!
+    application: 
+      latest: '最新加入:' 
+      about_title: 关于我们
+      about_html: |
+        上海技术，创新和开发社区的优势来源于社区人才，多元化的专业和互动合作
+      about2_html: |        
+        上海TECH是让你遇见让梦想启航的人和公司的平台，帮助您找到这些人的聚会。 
+      contact: 联系我们      
+      send_email: 邮件我们
+  user_sessions:
+    new:
+      forgot_password: "忘记密码 ?"
+      no_account: 尚未注册?
+      create_account: '建立帐号, 只需要30秒 !'
+  pages:
+    home:
+      welcome: 欢迎 !
+      hello_flash: hello flash
+    featured_jobs:
+      title: 最新职位
+  people:
+    show:
+      skills: "专长:"
+      working_at: "工作地点:" 
+      going_to: "前往:"
+      other: "其他人:"      
+    index:
+      title: "%{count} 人才"
+      not_listed: "不在目录中 ? "
+      add: '加入您的资料'
+    new:
+      title: 新的档案
+    edit:
+      title: 修改资料
+      delete: 删除此资料
+      confirm: 你确定要删除这个资料吗?
+    form:
+      image_instruction_html: |
+        图片要求
+        <br/>
+        默认图片将由gravatar导入.
+        <br/>
+        您的图片需要是方形(高度与宽度相同),或者它将被转换为方形.
+        <br/>
+        更改后的图像尺寸为270*270.
+      name_description: '请给出您的全名，英文和／或中文, 它将出现在您的图像下方'
+      name_en: 英文名
+      name_en_placeholder: 英文全名
+      name_cn: 中文名
+      name_cn_placeholder: 中文全名（汉字）
+      position: 您的职位
+      position_placeholder: '您的职位名称(如 : 数码顾问)'
+      skills: 您的专长
+      skills_placeholder: 您擅长什么?
+      skills_hint: 请列出最多三种技能
+      description: 你是谁 ?
+      description_placeholder: '如: 我是一个手机软件开发者，目前从事iPhone游戏.'
+      questions_description: "如果您没有时间, 现在可以跳过这些问题，这些是可选问题."
+      question1: "您来自哪里 ?"
+      question1_placeholder:
+      question2: "您在上海多长时间?"
+      question2_placeholder:
+      question3: "您的优势或超能力是什么?"
+      question3_placeholder:
+      question4: "您想认识什么样的人 ?"
+      question4_placeholder:
+      companies: 公司
+      companies_placeholder: 您在哪里工作?
+      companies_hint: "如果您的公司不在列表中，您可以添加或迟些时候再回到本页面."
+      events: 聚会
+      events_placeholder: 您参加何种聚会?
+      events_hint: "如果您的聚会不在列表中，您可以添加或迟些时候再回到本页面."
+      twitter: Twitter
+      weibo: 新浪微博
+      website: 个人网站
+  companies:
+    show:
+      types: "类型:" 
+      work_there: "他们在这里工作:" 
+      location: "地点: "
+      other: "其他公司:"
+    index:
+      title: "%{count} 公司"
+      not_listed: "您的公司在这里 ? "
+      add: '添加新公司'  
+    new:
+      title: 新公司
+    edit:
+      title: 修改公司
+      delete: 删除此公司
+      confirm: 您确认您要删除此公司吗?
+    form:
+      image_instruction_html: |
+        图像要求
+        <br/>
+        您的图像必须是方形(宽与高相等), 否者将会被转换.
+        <br/>
+        转换过后的尺寸为270*270.
+      get_template: '使用PSD template'
+      name_description: '您可以给我们您的公司英文和／或中文名称, 它将出现在图片下方'
+      name_en: 英文名
+      name_en_placeholder: 公司英文名称
+      name_cn: 中文名
+      name_cn_placeholder: 公司中文名称（汉字）
+      title: 简单介绍
+      title_placeholder: "公司宣传词 (如: 科技以人为本)"
+      description: 介绍
+      description_placeholder: '您公司介绍 (简单几句, 请勿用HTML)'
+      types: 商业类型
+      types_placeholder: 什么类型的公司 ?
+      types_hint: 请选择1到2项
+      people: "人"
+      people_placeholder: "添加公司员工"
+      twitter: Twitter
+      weibo: 新浪微博
+      website: 公司网站
+      adress: 地址
+      adress_description_html: |
+        输入公司英文或中文地址，让Google map找到它.
+        <br/>
+        如果有误，您可以回来修改.
+      adress_placeholder: "如 : 世纪大道100号, 上海"
+      map_explanation_html: |
+        您可以拖动标志来调整位置.
+        <br/>
+        请小心修改地址，或经度和纬度，但是请不要两者同时修改. 如果您这么做了, 疯狂的事情会出现.
+      submit: 创建
+  events:
+    show:
+      types: "类型:" 
+      go_there: "他们去那里:" 
+      other: "其他聚会:"
+    index:
+      title: "%{count} 聚会"
+      not_listed: "您的聚会在这里? "
+      add: '添加您的聚会'  
+    new:
+      title: 新的聚会
+    edit:
+      title: 修改聚会
+      delete: 删除这个聚会
+      confirm: 您确认您要删除这个聚会吗?
+    form:
+      name_en: 英文名
+      name_en_placeholder: '聚会英文名称'
+      name_cn: 中文名
+      name_cn_placeholder: '聚会中文名称'
+      description: 介绍
+      description_placeholder: '您的聚会介绍(间断介绍, 请勿用 HTML)'
+      types: 聚会类型
+      types_placeholder: 这是个什么聚会 ?
+      types_hint: 请选择1到2种类型
+      people: "参与人员"
+      people_placeholder: "谁会参加?"
+      twitter: Twitter
+      weibo: 新浪微博
+      website: 网站
+  users:
+    show:
+      title: 我的帐号
+      description: '管理您的资料，公司和聚会.'
+      edit_user: "修改我的email或密码"
+      person: 我的资料
+      person_create: "简历我的档案"
+      company: "公司:"
+      company_create: "添加一个公司"
+      event: 聚会
+      event_create: "添加一个聚会"
+      job: 职位提供
+      job_create: "发布一个职位信息"
+    new:
+      create_account: '30秒内建立新帐号 :'
+      already_have: '已经注册 ?'

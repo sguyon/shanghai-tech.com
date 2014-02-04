@@ -1,0 +1,98 @@
+= simple_form_for(@company, { :html => {:class => 'form-horizontal'} }) do |f|
+
+  =  f.error_notification
+
+  .row.box
+    .span4
+
+      - if @company.image?
+        = image_tag @company.image
+      - else  
+        - img = image_url ('company_default.png')
+        = image_tag img
+        = f.hidden_field :remote_image_url, :value => img
+      %br
+      %br      
+      %i=t('shared.choose_picture')
+      = f.file_field :image
+      %br
+      %br
+      %blockquote
+        =t('.image_instruction_html')
+        %br
+        = link_icon t('.get_template'), "/images/company_template.psd", "download"
+    .span8
+      = f.input :name_en,  :placeholder => t('.name_en_placeholder'), :label => t('.name_en')
+      = f.input :name_cn,  :placeholder => t('.name_cn_placeholder'), :label => t('.name_cn')
+
+      = f.input :title, :label => t('.title'), :placeholder => t('.title_placeholder')
+      = f.input :description, :required => true , :value => t('.description'), :placeholder => t('.description_placeholder'), :as => "text"
+
+      = f.association :company_types, :label => t('.types'), :hint => t('.types_hint'),:input_html => {:class => "chzn-select" ,:"data-placeholder" => t('.types_placeholder') }            
+
+      
+      = f.input :website, :label => t('.website'), :wrapper => :prepend do
+        = precede "<span class='add-on'>http://</span>".html_safe do
+          = f.input_field :website, :placeholder => "www.yourwebsite.com"
+
+      = f.association :people, :label => t('.people'), :input_html => {:class => "chzn-select",:"data-placeholder" => t('.people_placeholder') }
+
+      = f.input :twitter, :label => t('.twitter'), :wrapper => :prepend do
+        = precede "<span class='add-on'>@</span>".html_safe do
+          = f.input_field :twitter, :placeholder => "username"
+      
+      = f.input :weibo, :label => t('.weibo'), :wrapper => :prepend do
+        = precede "<span class='add-on'>@</span>".html_safe do
+          = f.input_field :weibo, :placeholder => "username"
+
+      = t('.adress_description_html')
+      %br
+      %br
+      = f.input :adress, :placeholder => t('.adress_placeholder'), :label => t('.adress')
+      %br
+      .themap
+        - if @company.adress?
+          = companynewmap
+          %br
+          %br
+          = f.input :longitude
+          = f.input :latitude
+          = t('.map_explanation_html')
+          %br
+          %br
+          
+      - if @company.user.presence
+        = f.hidden_field :user_id, :value => @company.user_id
+      - else
+        = f.hidden_field :user_id, :value => current_user.id
+
+      = f.button :wrapped, :submit, :value => t('shared.submit')
+
+
+= content_for :scripts do
+  <script type="text/javascript" charset="utf-8">
+  Gmaps.map.callback = function() {
+  mapInit();
+  $('#company_adress').change(function() {
+  $('#company_latitude').prop('disabled', true);
+  $('#company_longitude').prop('disabled', true);
+  $('.themap').replaceWith('Adress changed. Please submit changes first then come back here if you want to update marker position.')
+  });
+  google.maps.event.addListener(Gmaps.map.markers[0].serviceObject, 'dragend', function() { Gmaps.map.HandleDragend(this.getPosition()) });
+  }
+  Gmaps.map.HandleDragend = function(pos) {
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({
+  latLng: pos
+  }, function(responses) {
+  if (responses && responses.length > 0) {
+  //$('#company_adress').val(responses[0].formatted_address);
+  console.log(responses[0])
+  $('#company_latitude').val(responses[0].geometry.location.lat());
+  $('#company_longitude').val(responses[0].geometry.location.lng());
+  } else {
+  alert('Cannot determine address at this location.');
+  }
+  });
+  };     
+  </script>

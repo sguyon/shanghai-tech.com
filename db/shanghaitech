@@ -1,0 +1,435 @@
+-- MySQL dump 10.13  Distrib 5.5.28, for debian-linux-gnu (i686)
+--
+-- Host: localhost    Database: shanghaitech
+-- ------------------------------------------------------
+-- Server version	5.5.28-0ubuntu0.12.04.2
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `companies`
+--
+
+DROP TABLE IF EXISTS `companies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `companies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_en` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `twitter` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `weibo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `website` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `blog_feed` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `company_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `latitude` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
+  `gmaps` tinyint(1) DEFAULT NULL,
+  `adress` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name_cn` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_width` int(11) DEFAULT NULL,
+  `image_height` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `companies`
+--
+
+LOCK TABLES `companies` WRITE;
+/*!40000 ALTER TABLE `companies` DISABLE KEYS */;
+INSERT INTO `companies` VALUES (7,'960dots','Design service studio for media','','','','960dots.com','','','2012-11-07 08:27:54','2012-11-13 12:10:14',NULL,'Design service studio for media','960dots-o-500__1_.png',2,31.1963,121.393,NULL,'51 Shuicheng nan lu','九六零点设计',500,500),(14,'Tradesparq','The Social Network for Global Trade',NULL,'tradesparq','','www.tradesparq.com',NULL,NULL,'2012-11-20 12:10:55','2012-11-28 08:57:11',NULL,'Tradesparq is a social network where buyers and manufacturers meet and trade. Users can use their networks to verify potential trade partners.  ','Tradesparq-www.png',1,31.2411,121.509,NULL,'100 Pudong South Road','我不知道',270,270),(15,'italki','Language learning platform and teacher marketplace',NULL,'italki','','',NULL,NULL,'2012-11-20 12:23:25','2012-11-20 12:23:51',NULL,'italki.com is an online destination for learning foreign languages. italki connects people from around the world in a friendly community to learn from each other. italki helps people meet online to do free language exchanges. italki also helps students co','italkiappicon.jpg',18,31.2171,121.444,NULL,'Near huashan lu and wulumuqi lu','italki',270,270),(16,'Guanxi.me','Discover the little Guanxi between us',NULL,'','','www.guanxi.me',NULL,NULL,'2012-11-21 02:39:28','2012-11-21 06:37:24',NULL,'Guanxi.me is a location based mobile social network aimed at helping you discover the people that you want to meet. Guanxi leverages the multitude of connections you already have from your existing social networks and intelligently connects you with peopl','Guanxime2.png',19,31.1926,121.432,NULL,'333 Hongqiao Lu, Xuhui District, Shanghai, China','关系网',270,270),(17,'ONE to THREE','Bring Digital Alive.',NULL,'','','www.onetothree.net',NULL,NULL,'2012-11-21 04:47:51','2012-11-21 19:37:48',NULL,'ONE to THREE is a Shanghai-based independent interactive studio specializing in advanced web design and multimedia applications. We create highly-quality works for some of the world\'s leading brands and agencies.','onetothree_201210.jpg',20,31.2015,121.402,NULL,'No.1160 West Yanan Road, Shanghai','温睿互动',270,270),(18,'IT Consultis','Creative web agency',NULL,'itconsultis','','it-consultis.com',NULL,NULL,'2012-11-21 04:58:26','2012-11-21 06:35:03',NULL,'We are a web development agency founded by experienced entrepreneurs looking to create a refreshing new approach in an established industry.\r\n\r\nWe specialize into providing efficient solutions running on Wordpress, Drupal or Prestashop.','logo_carr_.png',21,31.2045,121.458,NULL,'489  Xiangyang South Road, Shanghai','IT Consultis',270,270),(19,'Xindanwei','商务服务 - 咨询顾问',NULL,'xindanwei','新单位','xindanwei.com',NULL,NULL,'2012-11-21 06:34:02','2012-11-21 08:54:51',NULL,'Xindanwei，the first and largest multidisciplinary coworking community and one of the most important grass-root creative centers in China. We mingle, catalyze and support creative leaders, startups and innovators locally and around the world. We create community workspaces, accelerate serendipity, facilitate knowledge sharing and collaboration, showcase and co-develop new models and projects with world-changing potential.\r\n','logo.jpg',23,31.2101,121.461,NULL,'上海市徐汇区永嘉路50号（近陕西南路）','新单位',270,270),(20,'MING','We love your application like it\'s our own.',NULL,'minglabs','','www.minggroup.net',NULL,NULL,'2012-11-21 06:40:13','2012-11-21 08:24:54',NULL,'MING designs and develops sophisticated, cross-screen applications. We make complex technology more human and more delightful. Not just a lofty idea, but a critical design and business problem - ensuring your application delivers on its promise to users.','ming.png',24,31.2326,121.452,NULL,'600 North Shaanxi Road, Jing\'An District, Shanghai','MING',270,270),(21,'The Red Synergy','empowering solutions',NULL,'','','www.theredsynergy.com',NULL,NULL,'2012-11-21 07:45:08','2012-11-21 08:20:45',NULL,'we incubate and provide legal and project management services for start ups\r\n','theredsynergy.png',27,31.2309,121.466,NULL,'555 West Nanjing Road, Shanghai','瑞奈基',270,270),(22,'C3O Carburant','We create connected experiences',NULL,'','','c3o.carburant.fr',NULL,NULL,'2012-11-21 08:03:02','2012-11-30 08:32:11',NULL,'C3O Carburant is a digital factory with a strong focus on mobile experience. We think, develop and launch digital strategies for your clients. We are the Shanghai-based branch of Carburant Paris.','c3o-logo.png',26,31.2353,121.451,NULL,'495号 Jiang Ning Lu Jing An Qu, Shanghai, China, 200040','上海万扈商务咨询有限公司',270,270),(24,'Pmatch','Reidentify Sleep',NULL,'','mianqu','mianqu.tmall.com',NULL,NULL,'2012-11-21 16:06:59','2012-11-28 08:06:50',NULL,'Functional textile product producing & sales company, with our own brand Pmatch. Our main profits are come from online shopping.','PMATCH.png',34,31.2879,121.445,NULL,'永和路201号，上海','上海浩嘉电子商务有限公司',270,270),(25,'SANGUSHAN','Africa Trade & Private Equity',NULL,'','','',NULL,NULL,'2012-11-27 05:56:39','2012-11-28 09:10:41',NULL,'Delivering investment advisory and strategic consulting services, for investors seeking private equity stakes and trading opportunities, especially in West Africa (Nigeria & RDC).','SANGUSHAN.gif',41,31.2304,121.474,NULL,'Shanghai','三汩山',270,270);
+/*!40000 ALTER TABLE `companies` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `companies_company_types`
+--
+
+DROP TABLE IF EXISTS `companies_company_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `companies_company_types` (
+  `company_id` int(11) DEFAULT NULL,
+  `company_type_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `companies_company_types`
+--
+
+LOCK TABLES `companies_company_types` WRITE;
+/*!40000 ALTER TABLE `companies_company_types` DISABLE KEYS */;
+INSERT INTO `companies_company_types` VALUES (7,2),(14,3),(15,3),(16,3),(17,2),(18,2),(20,1),(20,2),(21,6),(22,2),(19,2),(24,7),(25,2);
+/*!40000 ALTER TABLE `companies_company_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `companies_people`
+--
+
+DROP TABLE IF EXISTS `companies_people`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `companies_people` (
+  `company_id` int(11) DEFAULT NULL,
+  `person_id` int(11) DEFAULT NULL,
+  KEY `index_companies_people_on_company_id_and_person_id` (`company_id`,`person_id`),
+  KEY `index_companies_people_on_person_id_and_company_id` (`person_id`,`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `companies_people`
+--
+
+LOCK TABLES `companies_people` WRITE;
+/*!40000 ALTER TABLE `companies_people` DISABLE KEYS */;
+INSERT INTO `companies_people` VALUES (7,2),(14,16),(15,17),(16,18),(16,31),(17,19),(18,20),(18,21),(18,35),(20,23),(20,29),(22,26),(22,27),(22,28),(22,30),(22,32),(24,33);
+/*!40000 ALTER TABLE `companies_people` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `company_types`
+--
+
+DROP TABLE IF EXISTS `company_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `company_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_en` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `name_cn` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `company_types`
+--
+
+LOCK TABLES `company_types` WRITE;
+/*!40000 ALTER TABLE `company_types` DISABLE KEYS */;
+INSERT INTO `company_types` VALUES (1,'Service provider','2012-11-02 18:04:01','2012-11-02 18:04:01','服务提供者'),(2,'Agency/Consultancy','2012-11-02 18:04:01','2012-11-02 18:04:01','代理/顾问'),(3,'Funded startup','2012-11-02 18:04:01','2012-11-02 18:04:01','启动资金'),(4,'Early stage startup','2012-11-02 18:04:01','2012-11-02 18:04:01','早期开发'),(5,'Financial firm','2012-11-02 18:04:01','2012-11-02 18:04:01','金融公司'),(6,'Incubator','2012-11-02 18:04:01','2012-11-02 18:04:01','孵化器'),(7,'Office space','2012-11-02 18:04:01','2012-11-02 18:04:01','办公区域'),(8,'Other','2012-11-02 18:04:01','2012-11-02 18:04:01','办公区域');
+/*!40000 ALTER TABLE `company_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `event_types`
+--
+
+DROP TABLE IF EXISTS `event_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `event_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_en` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `name_cn` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `event_types`
+--
+
+LOCK TABLES `event_types` WRITE;
+/*!40000 ALTER TABLE `event_types` DISABLE KEYS */;
+INSERT INTO `event_types` VALUES (1,'Annual event','2012-11-02 18:04:01','2012-11-02 18:04:01','年度活动'),(2,'Regular meetup','2012-11-02 18:04:01','2012-11-02 18:04:01','经常会面'),(3,'Community event','2012-11-02 18:04:01','2012-11-02 18:04:01','社区活动'),(4,'Entrepreneur event','2012-11-02 18:04:01','2012-11-02 18:04:01','企业家活动'),(5,'Designer event','2012-11-02 18:04:01','2012-11-02 18:04:01','设计师活动'),(6,'Developer event','2012-11-02 18:04:01','2012-11-02 18:04:01','开发员活动'),(7,'Mobile event','2012-11-02 18:04:01','2012-11-02 18:04:01','手机活动'),(8,'Other','2012-11-02 18:04:01','2012-11-02 18:04:01','手机活动');
+/*!40000 ALTER TABLE `event_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `event_types_events`
+--
+
+DROP TABLE IF EXISTS `event_types_events`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `event_types_events` (
+  `event_type_id` int(11) DEFAULT NULL,
+  `event_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `event_types_events`
+--
+
+LOCK TABLES `event_types_events` WRITE;
+/*!40000 ALTER TABLE `event_types_events` DISABLE KEYS */;
+INSERT INTO `event_types_events` VALUES (4,11),(1,11);
+/*!40000 ALTER TABLE `event_types_events` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `events`
+--
+
+DROP TABLE IF EXISTS `events`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_en` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `event_type1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `twitter` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `weibo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `website` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `blog_feed` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `event_type2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `event_type3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name_cn` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_width` int(11) DEFAULT NULL,
+  `image_height` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `events`
+--
+
+LOCK TABLES `events` WRITE;
+/*!40000 ALTER TABLE `events` DISABLE KEYS */;
+INSERT INTO `events` VALUES (11,'Lean Startup Machine',NULL,'','Lean Startup Machine','','','http://leanstartupmachine.com/','','2012-11-04 12:36:24','2012-11-08 08:17:56',NULL,NULL,1,'lean.png','精益创业',NULL,NULL);
+/*!40000 ALTER TABLE `events` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `events_people`
+--
+
+DROP TABLE IF EXISTS `events_people`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `events_people` (
+  `event_id` int(11) DEFAULT NULL,
+  `person_id` int(11) DEFAULT NULL,
+  KEY `index_events_people_on_event_id_and_person_id` (`event_id`,`person_id`),
+  KEY `index_events_people_on_person_id_and_event_id` (`person_id`,`event_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `events_people`
+--
+
+LOCK TABLES `events_people` WRITE;
+/*!40000 ALTER TABLE `events_people` DISABLE KEYS */;
+INSERT INTO `events_people` VALUES (11,1);
+/*!40000 ALTER TABLE `events_people` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jobs`
+--
+
+DROP TABLE IF EXISTS `jobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jobs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jobs`
+--
+
+LOCK TABLES `jobs` WRITE;
+/*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `people`
+--
+
+DROP TABLE IF EXISTS `people`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `people` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_en` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `twitter` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `weibo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `website` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `blog` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `position` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `skill1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `skill2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `skill3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `question1` text COLLATE utf8_unicode_ci,
+  `question2` text COLLATE utf8_unicode_ci,
+  `question3` text COLLATE utf8_unicode_ci,
+  `question4` text COLLATE utf8_unicode_ci,
+  `name_cn` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_width` int(11) DEFAULT NULL,
+  `image_height` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `people`
+--
+
+LOCK TABLES `people` WRITE;
+/*!40000 ALTER TABLE `people` DISABLE KEYS */;
+INSERT INTO `people` VALUES (1,'Sacha Guyon','sa__cha','sachag','sguyon.com','http://www.google.com','2012-11-02 18:04:02','2012-11-21 08:48:51','Producer/Project manager',NULL,NULL,NULL,'I am a digital producer and jack of all trades, especially versed in UX design and marketing.\r\nI can also still code, like for this website.','sacha.jpg',1,'Paris, France','3 years.','getting things done','makers','古咏',270,270),(2,'Gabriel Jorby','gabyu','1818977021','gabyu.com','http://gabyu.com','2012-11-02 18:04:02','2012-11-20 17:40:10','Creative Director',NULL,NULL,NULL,'Designing websites and interactive systems for media and communities.','g-bw_2-square.png',2,'Paris, France','3+ years (since 2009)','Making your website icons pixel perfect.','You.','林家宝',500,500),(13,'Jane Jiang','','','','','2012-11-06 14:55:11','2012-11-20 16:11:55','Senior consultant',NULL,NULL,NULL,'Jane','4487e0b6d6f3ed11beacbbe39da2db85.png',13,'Nakin, China','5 years','Business development, stategy, marketing','','蒋剑',270,270),(14,'Chan Sisowath','','','',NULL,'2012-11-06 16:19:48','2012-11-20 12:10:07','Senior software engineer',NULL,NULL,NULL,'i am currently a software engineer in Erlang/OTP for VC backup company in shanghai, to help to grow their infrastructure to handle millions of actif users','photo.png',1,'Paris, France','2 months','experience in various type of IT company, Erlang/OTP, PHP, C/C++, SQL, mysql, oracle, perl, shell, unix, linux','','',270,270),(16,'William Hund','williamhund','','www.tradesparq.com',NULL,'2012-11-20 11:56:54','2012-11-20 11:56:54','Co-Founder & VP Design',NULL,NULL,NULL,'I am a Web/UX designer from Australia working on a web startup. ','db8550410caf8eb6506ecab7da12f8a7.png',17,'Melbourne, Australia. I have also lived in Sydney, Copenhagen, Seattle & Bangkok.','4 Years','Talking to animals','Stanley Kubrick','',270,270),(17,'Lenny','lkbgift','','giftdev.com',NULL,'2012-11-20 12:16:29','2012-11-20 12:16:29','Garbage Collector',NULL,NULL,NULL,'I am a web developer who designs WordPress themes. I consult on a weekly basis for digital strategy and marketing campaigns.','768af3def250eed3bbd49cd1e562b6f5.png',18,'California','','I can sleep through anything. ','Graffiti artists in Shanghai.','清志',270,270),(18,'Ananth Devarajan','','','www.guanxi.me',NULL,'2012-11-21 02:44:05','2012-11-21 02:44:05','Business Development Manager',NULL,NULL,NULL,'I am a digital tech enthusiast that is currently working on a location based social network to connect you with the right people','6dfe071820f302d77d4598be01ef7f65.png',19,'New Jersey, USA','2.5 Years','Talking to trees','','戴辉',270,270),(19,'Eago Fung','','','www.onetothree.net',NULL,'2012-11-21 04:43:12','2012-11-21 05:18:07','Creative Director',NULL,NULL,NULL,'Art director and founder at ONEtoTHREE Inc.','eago.jpg',20,'','5+ yrs.','','','',270,270),(20,'Thomas GUILLEMAUD','tguillemaud','','it-consultis.com',NULL,'2012-11-21 04:51:39','2012-11-21 04:51:39','Associate Project Manager',NULL,NULL,NULL,'I am a project manager at a cool web agency called IT Consultis. I\'m focusing on the technical side in the team.','59888770b13b7cf963717137dfe96fed.png',21,'I am from Nantes, France','2 years','I have a pretty huge high-tech cross knowledge','','',270,270),(21,'Thibault Genaitay','tgenaitay','','www.thibaultgenaitay.com',NULL,'2012-11-21 06:25:25','2012-11-21 06:27:32','Web Project Manager',NULL,NULL,NULL,'I am french digital project manager, crazy about beautiful fonts, perfect front-end and neat UI.','7782a3d44f5ed0b06bd9a4d927837bc2.png',22,'Angers, FRANCE','Since beginning of 2012','','','',270,270),(23,'Sebastian Mueller','s_mueller_','','www.minggroup.net',NULL,'2012-11-21 06:37:10','2012-11-21 07:43:46','Project Manager',NULL,NULL,NULL,'I am a Project Manager with MING - With a strong technical background and strong opinions. ','profile.png',24,'Germany.','One year.','','','',270,270),(24,'David Ding','davidatsg','davidatsg','techyizu.org',NULL,'2012-11-21 06:53:32','2012-11-21 07:21:05','Co-founder Tech YiZu',NULL,NULL,NULL,'I am a young professional exploring the high-tech entrepreneurship in digital media. I am passionate about technology and helping people.','david.png',25,'CN, SG, Cali.','3+ years','F&B, events','Anyone with a great mind','',270,270),(25,'marco gervasi','','','www.theredsynergy.com',NULL,'2012-11-21 07:27:28','2012-11-28 09:12:00','project manager',NULL,NULL,NULL,'I am a lawyer, project manager and incubator assisting companies to start-up ','MARCO_GERVASI.jpg',27,'Italy','8 years','Volcanic Energy','','马可',270,270),(26,'Alexis Lopez','','','c3o.carburant.fr',NULL,'2012-11-21 07:37:29','2012-11-30 08:23:42','New Business & Digital Consultant',NULL,NULL,NULL,'Digital trend watcher & strategist with a focus on mobile experience.','photo.jpg',26,'France','4 years Shanghai>Guangzhou>Chengdu>Shanghai','Understanding of the Chinese digital environment + Set up digital strategies + Enhance mobile experiences to reach and retain customers.','Partners, freelancers, entrepreneurs','罗龙力',270,270),(27,'Olivier PAU','','','c3o.carburant.fr',NULL,'2012-11-21 08:41:27','2012-11-21 08:41:27','managing partner',NULL,NULL,NULL,'Associate in digital agency','68331582eb2b1436c3e18216ce55cb1f.png',29,'France','8 years','Connecting people','','',270,270),(28,'Camille','milleca','','c30.carburant.fr',NULL,'2012-11-21 08:52:17','2012-11-21 09:06:43','Managing Partner',NULL,NULL,NULL,'Managing Partner in C30 digital agency','photo1.JPG',32,'','','','','',270,270),(29,'Marc Seefelder','warmarc','','www.minggroup.net',NULL,'2012-11-21 08:52:22','2012-11-21 08:52:22','Creative Director',NULL,NULL,NULL,'I am the Creative Director of MING Labs. ','ZeShoot_MarcPortraits_cut_square.jpg.png',28,'Germany.','A couple of years.','','','',270,270),(30,'Christophe Commaille','','','c3o.carburant.fr',NULL,'2012-11-21 09:03:56','2012-11-21 09:05:48','MANAGING PARTNER',NULL,NULL,NULL,'I\'m a digital entrepreneur specialized in Strategy, Production & User Experience on Mobile.','ICON-C3O.png',31,'','','','','',270,270),(31,'Will Bumpus','','白威特','guanxi.me',NULL,'2012-11-21 09:32:43','2012-11-21 09:32:43','Corporate Development Manager',NULL,NULL,NULL,'I love all things tech and currently developing a LBS app ','a49495cada9ad50f75830b4043e67692.png',33,'New York','11 Months','I spread sheets','People who use Guanxi.me','白威特',270,270),(32,'LUDOVIC BACQUE','nok_du','ludo974','c3o.carburant.fr',NULL,'2012-11-21 09:53:24','2012-11-30 10:10:17','Associate Project Manager',NULL,NULL,NULL,'I am a Project Manager & Lead Developer (IOS) focusing on new Digital Technologies','ludo.png',30,'France (Reunion Island)','3 years (7 years in China)','','','录豆',270,270),(33,'Johnny Wu','','1933675997  ','',NULL,'2012-11-21 15:58:52','2012-11-28 08:07:23','Operation Manager',NULL,NULL,NULL,'An employer with dream of startup my own company & brand, now work in a local E-commerce company. Concerning in Brand managerment & internet marketing.','497170d5f5895b0fafc9e067ead11c33.png',34,'Jiangxi Province, China.','2 Years','Meditation?','Enterpreneurs, Investers, Designers.','吴高峤',270,270),(34,'Valentin Gauffre','iam_valentin','高华论','iamvalentin.com',NULL,'2012-11-21 18:03:10','2012-11-21 18:09:12','Interaction Designer & Creative Technologist',NULL,NULL,NULL,'I am an Interaction Designer, focusing on connecting people and technologies in a transparent way. Hacker, technologist, manager, I endorse many roles as soon as I need to to assure the success of the differents projects I\'m working on.','00_01export_valentin_gauffre2012.jpg',35,'Bretagne, France.','2 years','I have the super-simplificator, that allow me to find super simple effective solutions to complex problems (but it\'s not working on maths...).','Doers','高华论',270,270),(35,'Aurelien Rigart','AurelienRigart','','it-consultis.com',NULL,'2012-11-21 18:54:46','2012-11-21 18:55:19','Vice President',NULL,NULL,NULL,'Arrived in China in 2009, I co founded IT Consultis with an amazing team of very motivated, passionated people who know what they are doing. ','290c6b9.jpeg',36,'From France with experience in England, and the USA','A little more than 2 years now ','Management, determination, ethics...\r\nFor the rest it will be for you to judge ','Other entrepreneurs and people from the Web and Creative Industry','',150,150),(36,'Lucas Briceno','kosa777','','www.behance.net/kosa777',NULL,'2012-11-23 10:22:39','2012-11-23 10:25:57','Interaction • UX Designer • Student 软件用户体验设计师',NULL,NULL,NULL,'I am studying and writing my master\'s dissertation / Final degree project at Fine art college of Shanghai University. Former intern at MING Labs & Reigndesign. \r\n\r\nI am actually managing a research work about creativity through daily life experience and collective memory.\r\n\r\n我是一个法国软件用户体验设计师，在上海实习。同时也在上海大学艺术系学习','moi.jpg',37,'France','1 Y','','','卢 卡 斯',270,270),(37,'Cyril Gelin','','','cn.linkedin.com/in/gelincyril',NULL,'2012-11-27 05:51:10','2012-11-27 08:08:45','Business Manager / Senior ICT Engineer',NULL,NULL,NULL,'Currently Business owner living in Shanghai. (Trading & Private equity)\r\nPreviously : Senior BI consultant Engineer, IS Project Manager, Management trainee, Development Engineer, Junior Researcher in Maths.\r\n','final_small_cv_square.jpg',41,'Globally minded with 16+ years of expatriation (Nigeria/London/Brussels/Beijing/Shanghai)\r\nFully bilingual English/French, notions in Mandarin.\r\n','→ 1- Beijing (2010)\r\n→ 2+ Shanghai (2010-2012)','→ Leadership skills, Team management\r\n→ 6+ years experience in as ICT Consultant / PM\r\n→ Strong Business & Technical agility\r\n→ Business Intelligence & Analytics\r\n','→ Creative people\r\n→ Potential business partners\r\n→ Potential employers\r\n','',243,270);
+/*!40000 ALTER TABLE `people` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `people_skills`
+--
+
+DROP TABLE IF EXISTS `people_skills`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `people_skills` (
+  `person_id` int(11) DEFAULT NULL,
+  `skill_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `people_skills`
+--
+
+LOCK TABLES `people_skills` WRITE;
+/*!40000 ALTER TABLE `people_skills` DISABLE KEYS */;
+INSERT INTO `people_skills` VALUES (1,3),(1,2),(1,5),(1,7),(2,1),(2,7),(13,3),(13,5),(13,10),(14,2),(2,9),(16,1),(16,2),(16,7),(18,3),(18,4),(18,7),(19,1),(19,2),(19,3),(20,3),(20,4),(20,10),(21,3),(21,7),(23,3),(23,4),(23,5),(24,10),(25,4),(26,3),(26,4),(27,3),(27,4),(27,9),(28,3),(29,1),(29,3),(29,7),(30,2),(30,7),(30,8),(31,4),(31,8),(32,2),(32,7),(32,10),(33,3),(33,4),(34,1),(34,4),(34,7),(35,3),(35,4),(35,5),(36,1),(36,7),(36,10),(37,4),(37,5),(37,7);
+/*!40000 ALTER TABLE `people_skills` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schema_migrations`
+--
+
+DROP TABLE IF EXISTS `schema_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schema_migrations` (
+  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schema_migrations`
+--
+
+LOCK TABLES `schema_migrations` WRITE;
+/*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
+INSERT INTO `schema_migrations` VALUES ('0'),('20120913071854'),('20120914100755'),('20120914110106'),('20120916092457'),('20120916105314'),('20120917041450'),('20120917054411'),('20120917054827'),('20120917111551'),('20120917112554'),('20120917123807'),('20121003070123'),('20121003075638'),('20121004051632'),('20121004051843'),('20121004062749'),('20121004064716'),('20121004065005'),('20121005073947'),('20121012075130'),('20121012085153'),('20121012090338'),('20121012114626'),('20121016113812'),('20121019044352'),('20121019071501'),('20121019072115'),('20121019104854'),('20121019105433'),('20121022175234'),('20121022175245'),('20121022175255'),('20121022180638'),('20121022181118'),('20121022181343'),('20121023152649'),('20121023213522'),('20121024075434'),('20121024080256'),('20121024080604'),('20121024081158'),('20121024104334'),('20121025031229'),('20121025032044'),('20121025070801'),('20121108085550'),('20121108102619'),('20121108105223'),('20121121064142');
+/*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `skills`
+--
+
+DROP TABLE IF EXISTS `skills`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `skills` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_en` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `name_cn` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `skills`
+--
+
+LOCK TABLES `skills` WRITE;
+/*!40000 ALTER TABLE `skills` DISABLE KEYS */;
+INSERT INTO `skills` VALUES (1,'Designer','2012-11-02 18:04:01','2012-11-02 18:04:01','设计师'),(2,'Developer','2012-11-02 18:04:01','2012-11-02 18:04:01','开发员'),(3,'Marketing','2012-11-02 18:04:01','2012-11-02 18:04:01','市场'),(4,'Entrepreneur','2012-11-02 18:04:01','2012-11-02 18:04:01','企业家'),(5,'Product manager','2012-11-02 18:04:01','2012-11-02 18:04:01','产品经理'),(6,'Investor','2012-11-02 18:04:01','2012-11-02 18:04:01','投资者'),(7,'User experience','2012-11-02 18:04:01','2012-11-02 18:04:01','用户经验'),(8,'Social media','2012-11-02 18:04:01','2012-11-02 18:04:01','公共媒体'),(9,'Media','2012-11-02 18:04:01','2012-11-02 18:04:01','媒体'),(10,'Other','2012-11-02 18:04:01','2012-11-02 18:04:01','其他');
+/*!40000 ALTER TABLE `skills` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `crypted_password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password_salt` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `persistence_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `perishable_token` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `admin` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `index_users_on_perishable_token` (`perishable_token`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'sacha.guyon@gmail.com','b7832c50835e74515201eee15e2b61d89df61f9c20d1c8848bca1f8d36e1fd5b4c14828dced29eda2aed5a517f12e3b8bd6acf0c55ed59ebdb9d2baf95a750da','TJa55Cj3q5DzBPC2SVTc','19eb6ffec8a9b56007b0b88a3fbc4471690a05db5af5e77aaf872ed6a88896bf514e6a24f91cd9fada2e7adccf668e6d05dfaa942f5793a785243222591c4124','2012-11-02 18:04:01','2012-11-29 08:23:01','WQQacwofa8LNZLhc8nXC',1),(2,'byubyu@gmail.com','498d07e73bc9d11008fdb2f68d46970fcd0d7da71156d94b12cf6754fbe3c5d9615807649e83e66c815af3aba959f3ce44b6571837096552135fcfb219c25406','DuKtcVkqXijeV8NKlaj','e26d9298f5250ae15d532d5292d69087d8c8df8ceb4dc83d0c869d01d4178d9e734932c6aa4fb61cfe912109e2949977fced097112280261237150cad20625f5','2012-11-02 18:04:01','2012-11-28 07:58:23','n0oYr07f67YDWz8rIdY',1),(13,'bonjourjane@gmail.com','90228c61dbdb71f3aef105a560cea2cde38c51ff81b71c6a399b071167c147fad4124cfdee7b4761f40400fc11fff2c8ed052bdd1fae0da64e3f7555c5ecb5b2','3amfPqRji7lhUxTqALS3','59515c95b5ab7a2bbf943be60e63840a6db337463959a0f8a0fbd3d6cf5705c4565687e823737fea909e341b857f779bbd538380a1f94860e6888fae98d547fd','2012-11-06 14:51:44','2012-11-06 14:51:44','0mRTHNmPBVxCM9TbnzDk',0),(14,'regio_marineris@hotmail.com','425e6e2214ca956d4ce3772953c67ec8b36085977bfbeb1e2d8a6f3e253d3f567f71ec70c89106a6a3207762e0e091c0d5dc459117c36cc95810b96031249d0f','i1PixXPoD6LTfhkTi8i','27b4d393890e42116722c127c2e06774b91a935e374d1e5a6f75d5cf996878d793d9d1cbcefa231d01e8632bead99d85e7d4649e7913462dcf4d57b94a7a5588','2012-11-06 15:54:39','2012-11-06 15:54:39','83hrP6KO9vLa1lkim2x',0),(15,'sada@ss.fr','b5ab081836c8b0d6d28dfe25d445094bb10ceab1af0e58ba2db6f419589efa0993b987bdbdb075cc4707e14323f44de8037509a0a8b74ad3715b6565cccc00fd','1N9GM1lioZFXsHCCFMyC','258fbb16d8fd878495eb454a4001f3444ecb4ce96cc108e80585161e50fd7d4a274df39c3be3ab807ad786b692944bf1aa29bf2cfa4a6e9566e921a96778d71f','2012-11-11 12:08:07','2012-11-11 12:08:07','yjLCtZFxJKTrhrwVi7i',0),(16,'emily.chong@frogdesign.com','c4b8796784a51c79486c7b166928ef1d9cfcaf54a6f4d40cac5dfa0e41b54d16be9232ff581c8271351464a4d91f8eb92a0b98b6ae6edac220f7f377bd708d36','CyCiHFTWc97EuKnDNWK','1dc0d6aee25c35db15f468fbe538fcbcc293e898309044349c479874458455a4c35c7e2ce98c55c92411e60d2b05a255a2495a78b749a53928a2a5594413c888','2012-11-20 11:20:08','2012-11-20 11:20:08','4zfjBJWa9wlb5Tsvrtuq',0),(17,'william.hund@gmail.com','d84e61f85f701ac7eb95a5b1bc9a973ec7c518b529bf08fadbcb43779692aaec020144f10d5e390e0344dba25f08cebcad8023703898f9be16aeffc343839c2a','b5njWYa5cD8irOP7pf1O','620d2ada57bb8969d1530747aab2b347063ecfe8ca2eac9195221aeace879665ee95d58cef1bd9839452365ce43b73b8afabd8f7cd539665824ee9d72e60b935','2012-11-20 11:44:33','2012-11-20 11:44:33','HyTj54dVbtrS03dIjdv',0),(18,'lkbgift@gmail.com','15bbb59fce5238f1e27ae9032274b0b1a6268ce1ebd3af9f586c0217b3ac3f230c208da0d1b5641987e517d00fa582ae30bd82260c2d33b79493e4cd02e58da8','vdUlrxfg7ZqZY9zKnca7','c8a0fd5425e42b5712652df761b2832a614c41187561402b09df51a4aeaa9636caf18ff64d191aadca0daf537b052d8be620b3f55b80ea2c88c488425b924a3a','2012-11-20 12:14:01','2012-11-20 12:14:01','8XQQ6Hc3Mp0my7hmdF8d',0),(19,'ananth@guanxi.me','d999f508f2140ce7205c313f333295039d2cd96992aea9813f7d49ff434f0471e4691231ce6b4342c38ee2a43b8614bf282910bc3f03a5f7389942d0f9da27b7','pT5z1Cjh49iPFiubYizz','f85c8c0d49518d4907fd4b7b8398aa22ce32f0ad2d8ee407149ebe3b1ea64917991a17c3c990d3a17382d9208a550dc28678b9c1cdee9a530827ca5e457afb8f','2012-11-21 02:20:12','2012-11-21 02:20:12','9d1rH6tZCbamOKL9u2cR',0),(20,'eago@onetothree.net','2de653ee1beb7d52316f84875985bf73ad00b83d9111efd8e28f173ee21798d67f6dfe5e7f274c71c6240b86f2dbcaead01db90c061e6dde99d94a71097acd3a','CQlOBcLniLfNWfsUPxwH','b48f1208719c50dd1834cf7184dba470ca227fdde203b0fe2d7b842cf2ade3ea14561a0b905f11da38484398c37ba4d6010497c2622eedc5d19b21b3127f3aa5','2012-11-21 04:40:59','2012-11-21 04:40:59','PEcF8OS9JLdFlpeiJeia',0),(21,'thomas@it-consultis.com','c14f9b7944591ec39eac46b9e28695df829f9259f51468530a52c5cd72c3b8ededf0f9c16cd2b17dc4bc7d1d375776c064fda85cdf8bbdf4110fbae515b96cd3','3PC4Fco1eYSo1L6XxU9e','06953725180b113bf543a6d2fb9ddb0da68eaae74e56c3f8e7d6c5d6ae6700a2454bee397710f3bcd1c5722cd3365b03d73f122791c9178c7ab2dd9377c35a8e','2012-11-21 04:49:32','2012-11-21 04:49:32','8SknAkc1ZjO8e3omm0',0),(22,'thibault@it-consultis.com','f74c21e93f00397680893a1c2f0989a8b1f4ac973d2ba1393be1e333af8799f480e67367d82d8ef73b464b72f9365281b1f19870066ff7fb04c2ec9a68a4fc2b','oRIcOrmKj7uUenqjnP','266b46ce0ddf65fac33c0c3733d7c2bbcdda06f16a3fe299711a4d3fe7495095492537f9215fa8e74ca587639b448cab868ce74c3086165a15bdd477438ec79f','2012-11-21 06:18:35','2012-11-21 06:18:35','iwExIw9QEEPhXFFAWzom',0),(23,'xindanwei@gmail.com','225ae32f691277bfcfd7b2124fae14e0d63696fc535a5adcaf4bdf588a139c6865854601e1151e03d6bcb61a4984be4c138edc07b08c6ccc5765ac3c8c591dde','XdyBgB0XMXNe38E8EB','f7e444fbc85447bf35889fd5b833e23970fe072565425af01987992a6fe024316e865f04888635d3e5874e945b361dfc63f19c4c3e9ecd0110d5c7b98e1531aa','2012-11-21 06:23:54','2012-11-21 06:23:54','GLbZGNRn5LUBhMShQeDG',0),(24,'sebastian.mueller@minglabs.com','50cf8ac0effaa3f43305eecb9e8628639c56770c341e9aa9a68d391ce6b7514462df41c72e33ba97bd29efedb6df69617fb4c7d828bc989a0152fbc075704fca','cOQzbucjfW4AfzS2Nd','79c00ad375e92508ff0ffaf31b6b43c0b2c14194b1372b9786027a3b2890e71deacb0f7eeef93b1d6dacf90d90def9296e1bb2c6df86824c3656133e2e8893a0','2012-11-21 06:34:49','2012-11-21 06:34:49','1HUtGMpWlAsRz0iw1Igu',0),(25,'david@techyizu.org','4930b41e51cabb30dec4940cc00ac3954994ac9998f7c7f525c5cec17d0a3def7bd45ce64d35c6e812720ca27af3a4624f0c17c3d917103e6b82186fbb9f7ffb','ueAtM19X3ehnSgp5LPZy','08e8b7cd6419ac5da91e5e6b6d64921a4308561d00e7744699a7eddf59ea00475d4c674108659f663229850ff154d4c85e02b8b0872e383055500e07f79443c7','2012-11-21 06:40:44','2012-11-21 06:40:44','w3G6RD6WkcYkTg8V4vM',0),(26,'alexis@carburant.fr','6bc3e54ff9f1e54274c56c2ff8a5ed6a689dec4c7de23a3ae62d1e50ac85e2dfe1c98ee26b86b5abec0594fbb8c1b83e885409d2b3fedb5a7d7d488cbdffadaf','kJSkOCzdyQHGpfJYLoc','c28eede1270e77c06e569f68682c1aeb671e1183d34e998b0c8994b9d43eb0b030aa996d9aaebc1c29c554a4313778428ef25aaa0f9b18fb5f53d55a60f1f182','2012-11-21 07:22:16','2012-11-30 08:18:06','rETPFoLP62AszpT4CYv',0),(27,'marco.gervasi75@gmail.com','670ecef73897041d04af830a9ef55e938ebd554dd8b4950b7f45d154a5d4572f27a86fe5e56235d9910f0c325d275fae3d674d672f0037d9b455b20e2acbcbb2','vEjZf8jC2wBt4tBbWqD3','75093f0fb17414231613c51c23e27eaee5d415cfdbbde39d7a08d84e2de7fa5d8997fa48bd67e9c39e0e5161e3b0f75c9fb335458e54b235e42f31786266f102','2012-11-21 07:24:47','2012-11-21 07:24:47','7zxGb7iO5ay9oU5yqtDJ',0),(28,'marc.seefelder@minglabs.com','fe13e9e26e4b069d30c1ccecab3d9fefcffd6aa80f0bb688730f14a24755569c091079d8a8c969d15d5f193b0488078182477056871cbbc7082ffa48b9f21603','coXn8pmFNgJvmidqtTtR','583a2e21f47c57ddd5fde7d87193dbceb6949111221cd08259125ffee3d9a23668f635e135b5a98b3a4f8b58df9de4d53c832ffb2b82886a811cad37a74d0a6c','2012-11-21 07:41:51','2012-11-21 07:41:51','RcOf39laLuWc4xrnhcdH',0),(29,'olivier@carburant.fr','b14e9d1dcdf2de8422f7cdd63404b83a33bb9b2c8a6a2ea1dc50d375320961cee2bdf64ee8618dd65656a67192c77b1eff1048376e6952075661983b68d72dec','CC41RU6w9aAzo2LgohVW','a195c2b15a7a4cf55024ce21bdd512df88c498c19b38acff05792fe097d0940da47326bbffe380e33e0185be009abec63026ca3a85b89ae2d8b5f6743dfd7588','2012-11-21 08:29:30','2012-11-21 08:29:30','I53oFKGco7UFefO47B',0),(30,'ludo@carburant.fr','45fdf7848802a529d77366cefb86a0630747b173314ffebfc4cf37fe222e5670588a46b9cca49a7943762d27a512c0e3788c5a684ef8b553b715b7b17325d69b','kRvoVZEmO2vrB6GQQWT0','272d4c2eb4f56093b537abc861afca9e5249c24505824bd3f8b4873f77d6aa6e8727519622edb89bb0c86a46726c3c77ece495a7ac6082215c5c667c64cab942','2012-11-21 08:33:37','2012-11-30 10:09:23','AY0QPEc6j1YQSCQHSQz6',0),(31,'christophe@carburant.fr','a6f83d186f86fbdee1b143857c46468b0d484f659ff553cdb3ba38167904d7f6e69e4f2d1ad6801b5d11e55f2c34a8d11ee9d1cd4509d4c46cf8d1ee93e310ea','grBZaO0tZGvut4OmuaJT','cf13f3eb0456b2b25033798fc8ea1bd9cede876367b279ce43374e83068fa1631bda3e7c0fc617d022cdcce75eed04fa4224cf6e9aaafe2963325d7517ccba6a','2012-11-21 08:41:51','2012-11-21 08:41:51','tnIXm66VRMFP50kaR6yp',0),(32,'camille@carburant.fr','9f57d68da63831e3bfc51dcc9ed4d6c996c61fb188e1e8b397b0e6dd03325dd40b17dc513954c238b3764ce3cfcaf8cc3a2e9b0f3cd1699a93124bb6c2fea7f3','DHgpjAc1gJLnM5HdIM5L','89b7d9ac170818b66aca1c9aadd0000f260db7c9720f05acaf39053f19dddcec79deed03515c8e2d95a9796edf7933ccd3759cc90892bff50032f3c19204515f','2012-11-21 08:50:07','2012-11-21 08:50:07','AcA7f7qxnFiwNeUzEia',0),(33,'will@guanxi.me','5afff6a28e0d6c6fe6f1de95f9bfafdd7d6c39c71436678937d5d91f01f6c0cc05bb1bec7ca5a69783caadb65743fc1db6537a86ff71414d9a44e6b4210313cd','69H626JIXaM9kqpQXK6e','0741d49aca7692a3ef50e37d1307e8dd2dbae93d012f2015a40baa60bbdceed2d59be5b87e9529e5cb9277a2ec30ee0fdd3e30d2bb7db22976873350bc3b6e49','2012-11-21 09:23:45','2012-11-21 09:23:45','t3y0Y4bdeWDXR7hk63',0),(34,'johnnywu@pmatch.cn','710c0bfd3bfd44d072eb4a792d44dad75e6a3e4eda1ae82e52401190f9d150882da1ac83470dada328d279ba4e611425d7b53e0c55bcc899f25bb87231259220','fB53gbSWqVuRMS6E8BoY','a95d4e83c9c17252cc29f2f0e969f5453c22be5c83a56339b549dfd653ebb8b371c1f42b2fb3c44b6ee65fbc5484e5480b973f10b1b251f5f8dac19c3c9aff5c','2012-11-21 15:53:33','2012-11-21 15:53:33','KrsloHjSLBytwccEBhIt',0),(35,'valentin.gauffre@gmail.com','78fcbca5f1852e99bdeca2cd1f51538159ba2cd08241914fd4cead0efcb342989c0dc90b1604e907124c8a8e36de192f4dca1270fc9bf1ffd297ce580bd0c963','xPPBoZjHeCOj8RhL3Yg','d826806f4a51e70a99bb39b44d28cee0ea02e2d051bf4f44ed31d40685a53a0bedef5522ecc8399e5280c3e4dd7ae9b743ce8ce84bf11d9a3be4340946a7b2e2','2012-11-21 17:56:17','2012-11-21 17:56:17','QiNPkyow5hl39jM5m6tN',0),(36,'aurelien@it-consultis.com','f4436dbab0fb99d374dc5173e8b8e2aea2c592c06c06900f766b6e478f5d50d7e02412fb217ba782f5f61a065b6edbe12d7d0ff72293fca951c1c762b9c16339','ksnRbMlMEPdNrxkV9MLI','bb676c19598a0d78ecd62c00f7f0e2ec4f975c171046bf1c13b924b5aff393c8fdbc7e6fee99559cc75a4761f83489166aaa8f7c0f01b407894004bd241f9b5e','2012-11-21 18:48:03','2012-11-21 18:48:03','swIg4fWwcbt9AjYymcT',0),(37,'l.briceno@hotmail.fr','d387d87a960a4c549e8ff81db2d01c7b607d8af7c4a6572d0197d440b2aecaf3b365d1ff92fdb581bbea85bce54d8154995ae2a1a0cbf3ee19b00772f7bfaff7','Uc1S8DWdi1qY0CzdY50J','35b109f09d6d0f66f749340a055ae9815d2d10bdac3e96b7e734d38193e5ab79c55eac2235f149bdc8fe0c753c31850197ccc1e77e1b1e9161951512bc46da51','2012-11-23 09:41:31','2012-11-23 09:41:31','nLjaeUOjSM82r0EsEAD',0),(38,'thomas@isaac-sinille.fr','d03ac99108baaa30f3be5f55dc4a83787bf6328f1453106d27a78003413dea561514e1719c0dc80dd3b049c8801598c604cede4e5e87c5200a46a2705c0d8d92','ZWaLJy2Gq93Apx3RWvO','d1a096524bf2544b8e38702ffe983cc4b44c6d9ae82d2e49f4aabbabcb53f689d5fc8e83158b6db5e1a542493f5210c98c6d12126f2d8fc251aabcc8d27f4aec','2012-11-25 15:01:27','2012-11-25 15:01:27','hd9bbNYYLuKuKjw4nM',0),(39,'de.feddad@gmail.com','ad2b96c4fe9944ee0797d302baf7934a0bf4563a04d28dc663d16d6447a594fb79eed468bfe154b591bfcd1686f36e30ca77bc6e7f1d55b9b237df70c45fbcda','CrDK3rqO3mxA9kPDUWmh','02b10fc098aa06b1f172e74f66aa4519eaf4a6e40a41bb4f8248845124adf9620c9eff88188a0398df2feb8cb200fdb72504a74d1ff8a5ae9da64e35aa0fb1fe','2012-11-26 03:07:54','2012-11-26 03:07:54','DAv4ZTH0ec0llbcFWcCp',0),(40,'wo886haha@hotmail.com','8ba02204c7e230ea78ae36995f484875fde3ee626137378b62e521466912cf8c5cb13f473101c08a40efd8a3507d5f524bddc5b428f9a961c9b7fd57856512cf','qia0nQI2mIe6q2U9woVg','217d7e93bf3c0d52fd74e507d438dc0f84ed79ae830b9ea5dec9d37329637bcfb17ac9ee0cea9b235625bdd895129d0fde4586e7a36c544f4699159158840013','2012-11-27 05:05:14','2012-11-27 05:05:14','BjeHUlORARiH9XLWjy',0),(41,'cyril.gelin@sangushan.com','59c5432a0cc658b37cbdf64c1f23a6a2e1dfe03643fd21ad662089374d45edcaeb5e33b43d7614f98772d08b94c2bc43eb3e1d4b6fa2cbab27dfd96c6f421c23','CLJtBCQRCvOESZfRS33e','f3a3dc564bf92af5f8d755852c2f97ee259001c96c7989cc1a61b674d86e18152a628a9b682c299b9e59dcc560698d460cbae9eb25d82907f65370f84ce6d44f','2012-11-27 05:06:23','2012-11-27 05:06:23','5S8ynODoYh6v5DnJu',0);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2012-12-01 21:18:02

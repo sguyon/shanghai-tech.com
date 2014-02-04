@@ -1,0 +1,6 @@
+= simple_form_for(@user, {:url => {:action => "create"} , :html => {:class => 'form-horizontal' } }) do |f2|
+
+  = f2.input :email, :placeholder => 'user@domain.com', :label => t('shared.email')
+  = f2.input :password, { :label => t('shared.password'), :placeholder => "&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;".html_safe }
+  = f2.input :password_confirmation, { :label => t('shared.password_confirmation'), :placeholder => "&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;".html_safe }
+  = f2.button :wrapped, :submit, :value => t('shared.submit')

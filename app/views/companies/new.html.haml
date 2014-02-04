@@ -1,0 +1,11 @@
+%section.section#main
+  .container
+    .page-header
+      %h2= link_to t('shared.back_account_html'), account_path
+      .thumbnail-filters
+        %h1
+          %i.icon-bookmark
+          =t('.title')
+          %small
+          
+    = render "form"

@@ -1,0 +1,8 @@
+%section#promo.section.alt#intro
+  .container
+    %h1.welcome
+      =t '.welcome_html', :people_link => people_path , :companies_link => companies_path, :events_link => events_path
+    - if current_user.nil?
+      %h1.new
+        =t '.new'
+        %a{:class => "btn btn-primary", :href => new_user_path}= t '.introduce'

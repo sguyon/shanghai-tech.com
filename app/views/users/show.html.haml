@@ -1,0 +1,84 @@
+%section.section#main
+  .container
+    .page-header.thumbnail-filters
+      %h1
+        %i.icon-user-md
+        = t('.title')
+        %br
+        %small
+          = t('.description')
+    %i= "Logged in as #{current_user.email}"
+    %br
+
+    / User
+    = link_icon t('.edit_user'), edit_user_path(current_user), "user-md"
+    %br
+
+    / People
+    .row.box
+      .span10
+        %h2
+          %i.icon-user
+          =t('.person')
+        - if current_user.person.nil?
+          = link_to image_tag(asset_path("missing.png"), :class => "avatar"),new_person_path
+          %br
+          = link_icon t('.person_create'), new_person_path, "plus-sign"
+        - else
+          .row.box
+            %ul          
+              %li.span3
+                %a{:href => edit_person_path(current_user.person)}
+                  = image_tag(current_user.person.image, :class => "avatar")
+                  %br
+                  / %i.icon-edit
+                  / = current_user.person.name
+
+    / Companies
+    .row.box
+      .span10
+        %h2
+          %i.icon-bookmark
+          =t('.company')
+
+        %p= link_icon t('.company_create'), new_company_path, "plus-sign"
+        
+      - if current_user.companies.count>0
+        %ul
+          - current_user.companies.each do |c|
+            %li.span3
+              %a{:href => edit_company_path(c.id)}
+                = image_tag(c.image, :class => "avatar")
+                %br
+    
+    / Events
+
+    .row.box
+      .span10
+        %h2
+          %i.icon-glass
+          =t('.event')
+        %p
+          %strong
+            Warning: This part is still a work-in-progress...
+        %p= link_icon   t('.event_create'), new_event_path, "plus-sign"
+        
+      - if current_user.events.count>0
+        %ul
+          - current_user.events.each do |e|
+            %li.span3
+              %a{:href => edit_event_path(e.id)}
+                = image_tag(e.image, :class => "avatar")
+                %br
+    .row.box
+      .span10
+        %h2
+          %i.icon-file
+          =t('.job')
+        = link_icon t('.job_create'), new_job_path, "plus-sign"
+
+        / - if current_user.jobs.count>0
+        /   %ul
+        /     - current_user.jobs.each do |j|
+        /       %li.span3
+        /         link_to j.name, edit_job_path(j.id)}

@@ -1,0 +1,16 @@
+%section.section#main
+  .container
+    .page-header
+      %h2= link_to t('shared.back_account_html'), account_path
+      .thumbnail-filters
+        %h1
+          %i.icon-user
+          =t('.title')
+          %small
+    .row
+      .span8.offset4
+        %p
+          %em
+            You may also directly
+            = link_to "add your company", new_company_path
+    = render "form"

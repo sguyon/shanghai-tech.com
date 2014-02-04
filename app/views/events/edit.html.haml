@@ -1,0 +1,14 @@
+%section.section#main
+  .container
+    .page-header
+      %h2= link_to t('shared.back_account_html'), account_path
+      .thumbnail-filters
+        %h1
+          %i.icon-glass
+          =t('.title')
+          %small
+
+    = render 'form'
+    .row
+      .span5.offset5
+        = link_to t('.delete'), event_path(@event), :confirm => t('.confirm'), :method => :delete, :class => "btn" 

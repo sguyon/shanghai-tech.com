@@ -1,0 +1,31 @@
+// Place all the styles related to the Companies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.companies
+{
+
+  .gmaps4rails_map {
+      width: 100%;
+      height: 200px;
+  }
+
+.map_container {
+      padding: 0px;
+      margin-left:20px;
+      border-width: 0px;
+      border-style:none;
+      border-color:none;
+      width: 100%;
+  }
+
+#map {
+  margin: -30px -20px;
+  position: relative;
+  z-index: 0;
+  }
+#map img {
+    max-width: none; }
+}

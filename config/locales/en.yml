@@ -1,0 +1,239 @@
+en:
+  nav:
+    home: Home
+    people: People
+    companies: Companies
+    events: Events
+    jobs: Jobs
+    account: Account
+    use_chinese: 用中文 
+    use_english: Use English
+    my_account: My account
+    logout: Logout
+    login: Login
+    register: Register
+  shared:
+    back_account_html: <i class="icon-arrow-left"></i> Back to my account
+    back_list_html: '<i class="icon-arrow-left"></i> Back to list'
+    filter: "Filter:"
+    all: All
+    view_all: View all (%{count})
+    email: E-mail
+    password: Password
+    password_confirmation: Password confirmation
+    submit: Submit
+    choose_picture: "Choose a new picture:"
+  flash:
+    close: close  
+  layouts:
+    intro:
+      welcome_html: |
+        Welcome to <strong>上海TECH</strong> !
+        Meet here the <a href="%{people_link}">people</a> and <a href="%{companies_link}">companies</a>
+        that makes our diverse community, and the <a href="%{events_link}">events</a> getting everyone together.
+      new: New here?
+      introduce: Introduce yourself !  
+    application:
+      latest: 'Latest additions:' 
+      about_title: About
+      about_html: |
+        Shanghai <strong>tech, creative and start-up community</strong> strengths  are in their <strong>people</strong>, <strong>diversity</strong> of talent, and the <strong>collaboration</strong> between those involved.   
+      about2_html: |        
+        <strong>上海TECH</strong> is where you can <strong>meet the people and companies</strong> who are making it happen, and find the <strong>events</strong> getting everyone together.        
+      contact: Contact       
+      send_email: Send us email 
+  user_sessions:
+    new:
+      forgot_password: "Forgot password ?"
+      no_account: No account yet ?
+      create_account: 'Create one, it takes 30 seconds !'
+  pages:
+    home:
+      welcome: Welcome !
+      hello_flash: hello flash
+    featured_jobs:
+      title: Featured jobs
+  people:
+    show:
+      skills: "Skills:"
+      working_at: "Working at:" 
+      going_to: "Going to:"
+      other: "Other people:"      
+    index:
+      title: "%{count} people"
+      not_listed: "Not listed yet ? "
+      add: 'Add your profile'
+    new:
+      title: New profile
+    edit:
+      title: Edit profile
+      delete: Delete this profile
+      confirm: Are you really sure to remove this profile ?
+    form:
+      image_instruction_html: |
+        <strong>Image instructions</strong>
+        <br/>
+        The default image has been retrieved by gravatar.
+        <br/>
+        Your image have to be squared (same width and height), or it will be deformed.
+        <br/>
+        Dimension after resizing will be 270*270.
+      name_description: "You can give us your fullname, in english and/or Chinese, that will appear below your image"
+      name_en: English Name
+      name_en_placeholder: Full name in English
+      name_cn: Chinese name
+      name_cn_placeholder: Full name in Chinese characters
+      position: Your position
+      position_placeholder: 'your title (example : digital consultant)'
+      skills: Your skills
+      skills_placeholder: What are you good at ?
+      skills_hint: 3 skills max. please
+      description: Who are you ?
+      description_placeholder: 'example : I am a mobile developer, currently making iPhone games.'
+      questions_description: "If you don't have time, just skip the other questions for now, they are optional."
+      question1: "Where are you from ?"
+      question1_placeholder:
+      question2: "How long you have been in Shanghai ?"
+      question2_placeholder:
+      question3: "What is your strength or superpower ?"
+      question3_placeholder:
+      question4: "Who would you like to meet ?"
+      question4_placeholder:
+      companies: Company
+      companies_placeholder: Where do you work ?
+      companies_hint: "If your company is not listed, you can add it and come back to this page later."
+      events: Events
+      events_placeholder: Which event(s) do you go to ?
+      events_hint: "If your events is not listed, you can add it and come back to this page later."
+      twitter: Twitter
+      weibo: Sina Weibo
+      website: Your website
+  companies:
+    show:
+      types: "Types:" 
+      work_there: "They work there:" 
+      location: "Location: "
+      other: "Other companies:"
+    index:
+      title: "%{count} companies"
+      not_listed: "Your business here ? "
+      add: 'Add your company'  
+    new:
+      title: New company
+    edit:
+      title: Edit company
+      delete: Delete this company
+      confirm: Are you really sure to remove this company?
+    form:
+      image_instruction_html: |
+        <strong>Image instructions</strong>
+        <br/>
+        Your image have to be squared (same width and height), or it will be deformed.
+        <br/>
+        Dimension after resizing will be 270*270.
+      get_template: 'Get the PSD template'
+      name_description: 'You can give us your company name, in english and/or Chinese, that will appear below its image'
+      name_en: English Name
+      name_en_placeholder: Company name in English
+      name_cn: Chinese name
+      name_cn_placeholder: Company name in Chinese characters
+      title: Title
+      title_placeholder: "Company tagline (example: connecting people)"
+      description: Description
+      description_placeholder: 'Your company description (a few lines, no HTML)'
+      types: Type of business
+      types_placeholder: What kind of company it is ?
+      types_hint: Choose only 1 or 2 please
+      people: "People"
+      people_placeholder: "Add company members"
+      twitter: Twitter
+      weibo: Sina Weibo
+      website: Website
+      adress: Address
+      adress_description_html: |
+        Input an address in English or Chinese so that it is recognized by Google map.
+        <br/>
+        You can later edit this entry to change the address if it's wrong.
+      adress_placeholder: "example : 100 Century avenue, Shanghai"
+      map_explanation_html: |
+        You can drag the marker to adjust slightly the location.
+        <br/>
+        But be careful changing wether the address, or the longitude/latitude, but not the 2 in the same time. If you do it, crazy things may happen.
+      submit: Submit
+  events:
+    show:
+      types: "Types:" 
+      go_there: "They go there:" 
+      other: "Other events:"
+    index:
+      title: "%{count} events"
+      not_listed: "Your event here ? "
+      add: 'Add your event'  
+    new:
+      title: New event
+    edit:
+      title: Edit event
+      delete: Delete this event
+      confirm: Are you really sure to remove this event?
+    form:
+      name_en: English name
+      name_en_placeholder: 'Event name in English'
+      name_cn: Chinese name
+      name_cn_placeholder: 'Event name in Chinese'
+      description: Description
+      description_placeholder: 'Your event description (a few lines, no HTML)'
+      types: Type of event
+      types_placeholder: What kind of event it is ?
+      types_hint: Choose only 1 or 2 types please
+      people: "People"
+      people_placeholder: "Who is going there ?"
+      twitter: Twitter
+      weibo: Sina Weibo
+      website: Website
+  users:
+    show:
+      title: My account
+      description: 'Manage your profile, companies and events entries.'
+      edit_user: "Change my email or password"
+      person: My Profile
+      person_create: "Create my profile"
+      company: "Companies:"
+      company_create: "Add a company"
+      event: Events
+      event_create: "Add an event"
+      job: Job offers
+      job_create: "Post a job offer"
+    new:
+      already_have: 'Already have an account ?'
+      create_account: 'Create a new user account in 30 seconds :'
+  jobs:
+    new:
+      title: New job offer
+    edit:
+      title: Edit job offer
+    form:
+      company: Your company
+      company_placeholder: Select your company
+      company_hint: List your company first to see it appear here
+      title_en_placeholder: "ex: Webdesigner"
+      title_cn_placeholder: "ex: 设计师"
+      title_en: Job title in English
+      title_cn: Job title in Chinese
+      short_description: Short job description
+      short_description_placeholder: "Short description of the job and the company, ex: Webdesigner with HTML/CSS skills for a growing online market place startup"
+      long_description: Detailed description
+      long_description_placeholder: "Describe in detail the job position, responsibilities, qualifications, etc. that you are looking for."
+      types: Job type
+      types_placeholder: Select job type
+      email: Contact email
+      website: Contact link
+    index:
+      title: "%{count} JOB OFFERS"
+      subtitle: Matching tech people and companies
+      add: Post a job offer
+      hire: You need to hire new recruit ? Post a job offer while it is free ! (registration required)
+      view: View job offer
+    show:
+      posted: Posted on 
+      summary: Summary
+      description: Description

@@ -1,0 +1,97 @@
+= render "layouts/intro"
+%section.section#main
+  .container
+    .page-header
+      %h2= link_to t('shared.back_list_html'), people_path
+    .row
+      .span3
+        = image_tag(@person.image)
+      .span6.description
+        %h1.name
+          =@person.name
+          %small
+            - if (@person.name_alt.presence && (@person.name_alt != @person.name))
+              (
+              = @person.name_alt
+              )
+        %h3.title=@person.position
+        .thumbnail-filters
+          - if @person.skills.count>0
+            %ul#filters
+              %strong
+                =t('.skills')
+              - @person.skills.each_with_index do |skill,index| 
+                %li{:class => "#{(index == (@person.skills.all.count-1)? 'last' : '')}"}
+                  = skill.name
+        %p.bioq Who are you ?
+        %p.bio=@person.description
+        - if @person.question1.presence
+          %p.bioq Where are you from ?
+          %p.bio=@person.question1
+        - if @person.question2.presence 
+          %p.bioq How long you have been in Shanghai ?
+          %p.bio=@person.question2
+        - if @person.question3.presence
+          %p.bioq What is your superpower ?
+          %p.bio=@person.question3
+        - if @person.question4.presence
+          %p.bioq Who would you like to meet ?
+          %p.bio=@person.question4
+          
+        %ul.icons
+          - if @person.twitter.presence
+            %li.twitter
+              %i
+              %a{:href => "http://www.twitter.com/#{@person.twitter}", :target => "_blank"}
+                = "@" + @person.twitter
+          - if @person.weibo.presence    
+            %li.weibo
+              %i
+              %a{:href => "http://www.weibo.com/#{@person.weibo}", :target => "_blank"}
+                = "@" + @person.weibo
+          - if @person.website.presence    
+            %li.website
+              %i
+              %a{:href => "http://#{@person.website}", :target => "_blank"} #{@person.website}
+
+      .span3.sidebar
+        - comps = Company.all(:include => :people, :conditions => ["people.id = ?", @person.id])
+        - if comps.count>0
+          %h2=t('.working_at')
+          %ul.people
+            - comps.each do |company|
+              %li
+                = link_to image_tag(company.image.small), company_path(company.id)
+          %br{:clear => "all"}
+          %br
+        - else
+          - if can? :update, @person
+            = button_icon "Add your company", new_company_path, "bookmark"
+            %br        
+        - evts = Event.all(:include => :people, :conditions => ["people.id = ?", @person.id])
+        - if evts.count>0
+          %h2= t('.going_to')
+          %ul.people
+            - evts.each do |event|
+              %li
+                = link_to image_tag(event.image.small), event_path(event.id)
+          %br{:clear => "all"}
+          %br        
+        - if can? :update, @person
+          %br        
+          = button_icon "Edit profile", edit_person_path(@person), "edit"
+
+
+%section.section#main.hidden-800
+  .container
+    .page-header
+      %h2= t '.other'
+    .row
+      .span12
+        %ul.thumbnails.bordered.thumbnail-list
+          - Person.all.sample(6).each do |person|    
+            - if (person.id != @person.id)
+              %li.span2.filter-designer
+                %a{:href => person_path(:id => person.id)}
+                  %figure.thumbnail-figure
+                    = image_tag("#{person.image}")

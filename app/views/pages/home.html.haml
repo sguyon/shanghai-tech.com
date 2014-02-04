@@ -1,0 +1,78 @@
+%section#promo.section
+  .map
+    = headermap
+= render "layouts/intro"
+%section.section#main
+  .container
+    = render "featured_jobs"
+    .row
+      .span6
+        / Companies
+        %h2
+          = t 'nav.companies'
+          %small.viewall
+            %a{:href=> companies_path}= t 'shared.view_all', :count => @companies.count
+        - featured_companies = @companies.sample(2)
+        %ul.thumbnails.bordered.thumbnail-list
+          - featured_companies.each do |company|    
+            %li{ :class => "span3"}
+              %a{:href => company_path(:id => company.id)}
+                %figure.thumbnail-figure
+                  - style = company.get_style.to_s
+                  %style{:type => "text/css"}
+                    = company.get_style
+                  = image_tag "#{company.image}", :id => "company" + company.id.to_s
+                  %figcaption.thumbnail-title
+                    %h3.companies
+                      %span= company.name
+                      - if company.title.presence
+                        %small.hidden-480=company.title                      
+
+
+      .span6
+        / People
+        %h2
+          = t 'nav.people'
+          %small.viewall
+            %a{:href=> people_path}= t 'shared.view_all', :count => @people.count      
+        - featured_people = @people.sample(2)
+        %ul.thumbnails.bordered.thumbnail-list
+          - featured_people.each do |person|    
+            %li{ :class => "span3"}
+              %a{:href => person_path(:id => person.id)}
+                %figure.thumbnail-figure
+                  - style = person.get_style.to_s
+                  %style{:type => "text/css"}
+                    = person.get_style
+                  = image_tag "#{person.image}", :id => "person" + person.id.to_s
+                  %figcaption.thumbnail-title
+                    %h3.people
+                      %span= person.name
+                      - if person.position.presence
+                        %small.hidden-480=person.position                      
+      =#.span3
+      =#  / Events
+      =#  %h2
+      =#    = t 'nav_events'
+      =#    %small.viewall
+      =#      %a{:href=> events_path}= t 'shared.view_all', :count => @events.count
+      =#  - event = @events.sample(1).first
+      =#  %ul.thumbnails.bordered.thumbnail-list
+      =#    %li{ :class => "span3"}
+      =#      %a{:href => event_path(:id => event.id)}
+      =#        %figure.thumbnail-figure
+      =#          = image_tag("#{event.image}")
+      =#          %figcaption.thumbnail-title
+      =#            %h3.events
+      =#              %span= event.name
+
+= content_for :scripts do
+  <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.9/src/markerclusterer_packed.js"></script>
+  <script type="text/javascript" charset="utf-8">
+  Gmaps.map.callback = function() {
+  mapInit();
+  Gmaps.map.markers_conf.do_clustering = true;
+  }
+  - unless current_user # show home nav dropdown only if not logged in
+    = d = "$(jQuery(function($){ $('.dropdown-toggle').click();  }));"
+  </script>

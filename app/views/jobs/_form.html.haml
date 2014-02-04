@@ -1,0 +1,50 @@
+= simple_form_for(@job, { :html => {:class => 'form-horizontal', :multipart => true } }) do |f|
+
+  =  f.error_notification
+
+  .row.box
+    .span4
+
+      %h3 Price
+      The job board is FREE for now.
+      %br
+      %br
+      %h3 Information
+      %p 
+        %br
+        You are creating a new job offer.
+      %p         
+        Note that you have create a 
+        = link_to "company profile", new_company_path
+        first.
+      %p 
+        Also, make sure to post at least the title in 2 languages (English + Chinese).
+        You may then insert both language descriptions in the same form field.
+        %br
+        %br
+    .span8
+    
+      = f.association :company, :label => t('.company'),:hint => t('.company_hint'), :input_html => {:class => "chzn-select", :"data-placeholder" => t('.company_placeholder') }            
+      
+
+      = f.input :title_en , :label => t('.title_en'), :placeholder => t('.title_en_placeholder') 
+      = f.input :title_cn, :placeholder => t('.title_cn_placeholder') , :label => t('.title_cn')
+    
+      = f.input :short_description, :label => t('.short_description'), :placeholder => t('.short_description_placeholder'), :as => "text"
+      
+      = f.input :long_description, :label => t('.long_description'), :placeholder => t('.long_description_placeholder'), :as => "text", :input_html => { :class => 'wysihtml5' }
+      = f.association :job_types   , :label => t('.types'),:input_html => {:class => "chzn-select" ,:"data-placeholder" => t('.types_placeholder') }            
+
+      = f.input :email, :placeholder => 'job@example.com', :label => t('.email')
+
+      = f.input :website, :label => t('.website'), :wrapper => :prepend do
+        = precede "<span class='add-on'>http://</span>".html_safe do
+          = f.input_field :website, :placeholder => "www.yourwebsite.com"
+
+
+      - if @job.user.presence
+        = f.hidden_field :user_id, :value => @job.user_id
+      - else
+        = f.hidden_field :user_id, :value => current_user.id
+
+      = f.button :wrapped, :submit, :value => t('shared.submit')

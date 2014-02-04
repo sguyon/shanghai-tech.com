@@ -1,0 +1,137 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(content="yes" name="apple-mobile-web-app-capable")
+    %meta(name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no")
+    %title= content_for?(:title) ? yield(:title) : "上海 TECH"
+    = csrf_meta_tags
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+    = stylesheet_link_tag "application", :media => "all"
+    / %link(href="images/apple-touch-icon-144x144.png" rel="apple-touch-icon-precomposed" sizes="144x144")
+    / %link(href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114")
+    %link(href="/images/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72")
+    %link(href="/images/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed")
+    / %link(href="images/favicon.ico" rel="shortcut icon")
+    = analytics_init if Rails.env.production?
+
+%body.theme
+  / Page Header
+  %header#masthead
+    %nav.navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %h1
+            %a.brand{:href => root_path} 
+              %span 上海 Tech
+          .nav-collapse
+            %ul.nav.pull-right
+              = nav_link_icon(t('nav.home'), root_path,'home')
+              = nav_link_icon(t('nav.people'), people_path, 'user')
+              = nav_link_icon(t('nav.companies'), companies_path, 'bookmark')
+              =# nav_link_icon(t('nav.events'), events_path, 'glass')
+              = nav_link_icon(t('nav.jobs'), jobs_path, 'file')
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", "data-target"=>"#", :href => account_path }
+                  %i.icon-user-md
+                  =t('nav.account')
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    - if params[:locale] == 'zh'
+                      = link_icon(t('nav.use_english'), url_for( :locale => 'en' ), "flag")
+                    - else
+                      = link_icon(t('nav.use_chinese'), url_for( :locale => 'zh' ),"flag")
+                  %li.divider
+                  - if current_user
+                    %li= link_icon t('nav.my_account'), users_path, "user-md"
+                    - if current_user.admin==1
+                      %li= link_icon "Admin", rails_admin_path , "key"                    
+                    %li= link_icon t('nav.logout'), logout_path , "signout"
+
+                  - else
+                    %li= link_icon t('nav.login'), login_path, "signin"
+                    %li.disabled= link_icon t('nav.register'), register_path, "plus-sign"
+
+                                
+  #content{:role => "main", :class => "#{controller.controller_name} #{controller.action_name}"}
+    - if flash[:notice] || flash[:warning]
+      %div{:class => "alert flash", :style => 'display: none'}
+        = flash[:notice] || flash[:warning]
+        &nbsp;
+        %a{:href=>"#", :id => "close_link"}=t 'flash.close'
+    
+    = yield
+
+  %footer#footer.section{:role => "contentinfo"}
+    .container
+      .row-fluid
+        .span3
+          %h3=t('.latest') #Latest additions          
+          %ul.unstyled
+            - @people = Person.all(:order => 'created_at DESC', :limit => 2)
+            - @people.each do |person|
+              %li
+                %h4
+                  %i.icon-user
+                  %a{:href => person_path(:id => person.id)}=person.name
+          =#%ul.unstyled
+          =#  - @events = Event.all(:order => 'created_at DESC', :limit => 2)
+          =#  - @events.each do |event|
+          =#    %li
+          =#      %h4          
+          =#        %i.icon-glass
+          =#        %a{:href => event_path(:id => event.id)}= event.name
+          %ul.unstyled
+            - @companies = Company.all(:order => 'created_at DESC', :limit => 2)
+            - @companies.each do |company|
+              %li
+                %h4          
+                  %i.icon-bookmark
+                  %a{:href => company_path(:id => company.id)}= company.name    
+        .span6.middle
+          %h3=t '.about_title'
+          %p.about=t '.about_html'
+          %p.about
+            =t ('.about2_html')
+            %br
+            %br
+        .span3
+          %h3=t('.contact')
+          %p.info
+            Made in Shanghai by
+            %a{:href => person_path(1)} Sacha
+            and
+            %a{:href => person_path(2)} Gabriel
+            with the great
+            %a{:href => "http://twitter.github.com/bootstrap/"} Bootstrap
+            and
+            %a{:href => "http://rubyonrails.org/"} Rails
+            frameworks.
+          %p.about
+            %a.btn.btn-primary{:href => "mailto:contact@shanghai-tech.com"}
+              %i.icon-envelope
+              &nbsp;
+              =t('.send_email')
+          %p.info                
+            %a{:href => "http://www.twitter.com/weareSHTECH", :target => "_blank"}
+              = image_tag('icon-twitter-white.png')
+              &nbsp; twitter
+            &nbsp; &nbsp; &nbsp;
+            %a{:href => "http://www.weibo.com/weareSHTECH", :target => "_blank"}
+              = image_tag('icon-weibo-white.png')
+              &nbsp; 微博
+
+          %p.version          
+            version:
+            =APP_VERSION
+            =Rails.env
+    = javascript_include_tag "application"
+    = yield :scripts # for gmap

@@ -1,0 +1,44 @@
+= render "layouts/intro"
+%section.section#main
+  .container
+    .page-header.thumbnail-filters
+      %p Event listing coming soon !
+    / !!!!!! TO UNCOMMENT FOR TESTING 
+    /   %h1
+    /     %i.icon-glass
+    /     =t '.title' , :count => @events.count
+    /     %br
+    /   %h1
+    /     %small
+    /   %ul#filters
+    /     %strong
+    /       =t('shared.filter')
+    /       %li
+    /         %a.active{"data-filter" => "all", :href  => "#"}=t 'shared.all'
+    /     - EventType.all.each_with_index do |t,index| 
+    /       %li{:class => "#{(index == (EventType.all.count-1)? 'last' : '')}"}
+    /         %a{"data-filter" => "#{t.id}", :href => "#"} #{t.name}
+    / %ul.thumbnails.bordered.thumbnail-list
+    /   - @events.each do |event|   
+    /     - classes = "span3"
+    /     - event.event_types.each do |type| 
+    /       - classes = classes + " filter-#{type.id}"
+    /     %li{ :class => "#{classes}"}
+    /       %a{:href => event_path(:id => event.id)}
+    /         %figure.thumbnail-figure
+    /           - style = event.get_style.to_s
+    /           %style{:type => "text/css"}
+    /             = event.get_style
+    /           = image_tag "#{event.image}", :id => "event" + event.id.to_s
+    /           %figcaption.thumbnail-title
+    /             %h3.events
+    /               %span= event.name
+
+    /   %li.span3.hidden-800
+    /     %a{:href => "/event/new"}
+    /       %figure.thumbnail-figure
+    /         %div#new
+    /           %figcaption.thumbnail-title
+    /             %h3
+    /               %span= t('.not_listed')
+    /               = link_to t('.add'), new_event_path, {:class =>"add btn btn-primary btn-large"}

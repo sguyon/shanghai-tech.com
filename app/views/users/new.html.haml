@@ -1,0 +1,20 @@
+%section.section#main
+  .container
+    .row
+      .span3.offset1.off
+        %em=t('.already_have')
+        %br
+        %br
+        %a{:href => login_path, :class=>"register btn btn-inverse btn-large"}        
+          %i.icon-signin
+          =t('nav.login')
+        %br
+        %br                  
+      .span7
+        %h1
+          %i.icon-plus-sign
+          =t('nav.register')
+          %br  
+        =t('.create_account')          
+        .loginbox
+          = render "user"
